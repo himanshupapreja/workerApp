@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:custom="clr-namespace:Worker_7ERFAcraft.CustomControls"
+                xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository"
+                 xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="Worker_7ERFAcraft.Pages.DriverHomePage">
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BGColor}"
+                              AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <!--Header-->
+                <!--<ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Spacing="0" BackgroundColor="{StaticResource MainColor}"  
+                             Padding="5,15,5,0">
+
+                        <StackLayout HorizontalOptions="FillAndExpand" Spacing="0"   >
+                            <StackLayout HorizontalOptions="CenterAndExpand" Spacing="0" Orientation="Horizontal" Margin="0,0,0,10">
+                                <Image HeightRequest="20" Source="ic_list.png" Margin="0,0,5,0"/>
+                                <Label x:Name="lblNew1" Text="{strings:Translate New}" Style="{StaticResource HeaderLabelStyle}" HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"  VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+                           TextColor="White"  IsVisible="{Binding IsNew}"/>
+                                <Label x:Name="lblNew2" Text="{strings:Translate New}" Style="{StaticResource LabelStyle}" HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"  VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+                           TextColor="White"  IsVisible="{Binding IsNotNew}"/>
+                            </StackLayout>
+                            <BoxView x:Name="boxViewNew" Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="5" VerticalOptions="End"
+                             Margin="0,0,0,0" BackgroundColor="{Binding OnNewBgColor}"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer   Command="{Binding PendingCommand}" >
+
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="FillAndExpand" Spacing="0"   >
+                            <StackLayout HorizontalOptions="CenterAndExpand" Spacing="0" Orientation="Horizontal" Margin="0,0,0,10">
+                                <Image HeightRequest="20" Source="ic_list.png" Margin="0,0,5,0"/>
+                                <Label x:Name="lblOnGoing1" Text="{strings:Translate OnGoing}" Style="{StaticResource HeaderLabelStyle}" HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"  VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+                           TextColor="White"  IsVisible="{Binding IsOnGoing}"/>
+                                <Label x:Name="lblOnGoing2" Text="{strings:Translate OnGoing}" Style="{StaticResource LabelStyle}" HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"  VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+                           TextColor="White"  IsVisible="{Binding IsNotOnGoing}"/>
+                            </StackLayout>
+                            <BoxView x:Name="boxViewOnGoing" Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="5" VerticalOptions="End"
+                             Margin="0,0,0,0" BackgroundColor="{Binding OnGoingBoxBgColor}"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer   Command="{Binding OnGoingCommand}" >
+
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="FillAndExpand" Spacing="0"   >
+                            <StackLayout HorizontalOptions="CenterAndExpand" Spacing="0" Orientation="Horizontal" Margin="0,0,0,10">
+                                <Image HeightRequest="20" Source="ic_order_history.png" Margin="0,0,5,0"/>
+                                <Label x:Name="lblHistory1" Text="{strings:Translate  History}" Style="{StaticResource HeaderLabelStyle}"   
+                           HorizontalOptions="CenterAndExpand"    HorizontalTextAlignment="Center"
+                            VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+                           TextColor="White"  IsVisible="{Binding IsHistory}"/>
+
+                                <Label x:Name="lblHistory2" Text="{strings:Translate  History}" Style="{StaticResource LabelStyle}"   
+                           HorizontalOptions="CenterAndExpand"    HorizontalTextAlignment="Center"
+                            VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+                           TextColor="White"  IsVisible="{Binding IsNotHistory}"/>
+
+                            </StackLayout>
+                            <BoxView x:Name="boxViewHistory" Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="5" VerticalOptions="End"
+                             Margin="0,0,0,0" BackgroundColor="{Binding HistoryBoxBgColor}"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer   Command="{Binding HistoryCommand}" >
+
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="FillAndExpand" Spacing="0"   >
+                            <StackLayout HorizontalOptions="CenterAndExpand" Spacing="0" Orientation="Horizontal" Margin="0,0,0,10">
+                                <Image HeightRequest="20" Source="ic_chat_select.png" Margin="0,0,5,0"/>
+                                <Label x:Name="lblChat1" Text="{strings:Translate  Chat}" Style="{StaticResource HeaderLabelStyle}"   
+                           HorizontalOptions="CenterAndExpand"    HorizontalTextAlignment="Center"
+                            VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+                           TextColor="White"  IsVisible="{Binding IsChat}"/>
+
+                                <Label x:Name="lblChat2" Text="{strings:Translate  Chat}" Style="{StaticResource LabelStyle}"   
+                           HorizontalOptions="CenterAndExpand"    HorizontalTextAlignment="Center"
+                            VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+                           TextColor="White"  IsVisible="{Binding IsNotChat}"/>
+
+                            </StackLayout>
+                            <BoxView x:Name="boxViewChat" Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="5" VerticalOptions="End"
+                             Margin="0,0,0,0" BackgroundColor="{Binding ChatBoxBgColor}"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer   Command="{Binding ChatTabCommand}" >
+
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+
+                    </StackLayout>
+                </ScrollView>-->
+
+                <ContentView IsVisible="{Binding InternetVisible}" x:Name="NoInternet" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                    <StackLayout BackgroundColor="Transparent" Padding="10" Spacing="10">
+                        <Image Source="nointernet.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" Margin="0,10,0,0"></Image>
+                        <Label Text="{strings:Translate Connectionfailed}" FontSize="30" HorizontalOptions="Center" VerticalOptions="Start" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" 
+                               StyleId="{x:Static adc:App_FontFamilies.BodyFont}"></Label>
+                        <custom:LineLabel Text="{strings:Translate InternetMsg}" FontSize="Small" HorizontalOptions="StartAndExpand" LineSpacing="1.2"
+                           VerticalOptions="Start" HorizontalTextAlignment="Center" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" StyleId="{x:Static adc:App_FontFamilies.BodyFont}"></custom:LineLabel>
+                        <Button FontFamily="{x:Static adc:App_FontFamilies.BodyFont}"  StyleId="{x:Static adc:App_FontFamilies.BodyFont}" Margin="0,10,0,0"
+                    HorizontalOptions="Center"  TextColor="White" BackgroundColor="#3A990F"
+                    Text="{strings:Translate TryAgain}" FontSize="Small" WidthRequest="180" HeightRequest="50"
+                        FontAttributes="Bold" BorderRadius="15" Clicked="Try_Again_Button_Clicked"></Button>
+                    </StackLayout>
+                </ContentView>
+
+                <ContentView x:Name="NoData"  BackgroundColor="Transparent" IsVisible="{Binding NoDataVisible}"
+                             HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                    <StackLayout BackgroundColor="Transparent" Padding="10" Spacing="10">
+                        <Image Source="no_data_found.png" VerticalOptions="Start" HorizontalOptions="Center" HeightRequest="250" Margin="0,30,0,0"></Image>
+                        <custom:LineLabel LineSpacing="1.2" Text="{strings:Translate NoDataPresent}" FontSize="Medium" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" 
+                           VerticalOptions="Center" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}"
+                                      StyleId="{x:Static adc:App_FontFamilies.BodyFont}"></custom:LineLabel>
+                    </StackLayout>
+                </ContentView>
+
+                <ListView  IsVisible="{Binding MainVisible}" x:Name="lstViewOrder" SeparatorVisibility="None" HasUnevenRows="true" 
+                       ItemsSource="{Binding OrderList}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                       IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshDataCommand}" IsRefreshing="{Binding IsRefreshingData}"
+                       SelectedItem="{Binding SelectedOrderItem,Mode=TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <ViewCell.View>
+
+                                    <StackLayout x:Name="lstViewOrderItem" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+                                        <!--History-->
+                                        <Frame x:Name="frameNew" HorizontalOptions="FillAndExpand" Margin="10" CornerRadius="15"
+                                           Padding="0" IsVisible="{Binding IsNewVisible}" BackgroundColor="#FEEFE1">
+
+
+                                            <StackLayout HorizontalOptions="FillAndExpand" Padding="0">
+
+                                                <StackLayout HorizontalOptions="FillAndExpand" Padding="5">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="50"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <StackLayout Grid.Column="0" Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                                                            <Label Text="{Binding WorkerName}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                            <Label Text="{Binding WorkerRegNumber}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                        </StackLayout>
+
+                                                        <Image Source="google_map.png" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                                                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" Grid.Column="1">
+                                                            <BoxView.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.MapOpenCommand, Source={x:Reference lstViewOrder}}" CommandParameter="{Binding Source={x:Reference lstViewOrderItem}, Path=BindingContext}" NumberOfTapsRequired="1"/>
+                                                            </BoxView.GestureRecognizers>
+                                                        </BoxView>
+                                                    </Grid>
+
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="worker_location.png" HeightRequest="25"/>
+                                                        <Label Text="{Binding WorkerLocation}" Style="{StaticResource LabelStyle}"/>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+
+                                                <StackLayout HorizontalOptions="FillAndExpand" Padding="5" >
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                                        <Label Text="{Binding CustomerName}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                        <Label Text="{Binding CustomerRegNumber}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                    </StackLayout>
+
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="worker_location.png" HeightRequest="25"/>
+                                                        <Label Text="{Binding CustomerLocation}" Style="{StaticResource LabelStyle}"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+
+                                                <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource MainColor}">
+
+                                                    <Button Padding="0" Text="{Binding SendQuoteText}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" HeightRequest="40"
+                                TextColor="White" HorizontalOptions="FillAndExpand"    
+                                   FontSize="Large" BackgroundColor="{StaticResource MainColor}" 
+                                                            Command="{Binding Path=BindingContext.SendQuoteCommand, Source={x:Reference lstViewOrder}}" CommandParameter="{Binding .}"/>
+
+                                                    <BoxView WidthRequest="1" VerticalOptions="Center" BackgroundColor="White"></BoxView>
+
+                                                    <Button BindingContext="{Binding Source={x:Reference lstViewOrder}, Path=BindingContext}" 
+                                                                              Command="{Binding ChatCommand}" 
+                                                            CommandParameter="{Binding Source={x:Reference frameNew}, Path=BindingContext}"
+                                         Text="{strings:Translate Chat}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" HeightRequest="40"
+                                TextColor="White" HorizontalOptions="FillAndExpand"    
+                                   FontSize="Large" BackgroundColor="{StaticResource MainColor}"/>
+
+                                                </StackLayout>
+                                            </StackLayout>
+
+                                        </Frame>
+
+                                        <Frame x:Name="frameProgress" HorizontalOptions="FillAndExpand" Margin="10" CornerRadius="15"
+                                           Padding="0" IsVisible="{Binding IsOnGoingVisible}" BackgroundColor="#FEEFE1">
+
+
+                                            <StackLayout HorizontalOptions="FillAndExpand" Padding="0">
+
+                                                <StackLayout HorizontalOptions="FillAndExpand" Padding="5">
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                                        <Label Text="{Binding WorkerName}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                        <Label Text="{Binding WorkerRegNumber}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                    </StackLayout>
+
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="worker_location.png" HeightRequest="25"/>
+                                                        <Label Text="{Binding WorkerLocation}" Style="{StaticResource LabelStyle}"/>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+
+                                                <StackLayout HorizontalOptions="FillAndExpand" Padding="5" >
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                                        <Label Text="{Binding CustomerName}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                        <Label Text="{Binding CustomerRegNumber}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                    </StackLayout>
+
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="worker_location.png" HeightRequest="25"/>
+                                                        <Label Text="{Binding CustomerLocation}" Style="{StaticResource LabelStyle}"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+
+                                                <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource MainColor}">
+
+                                                    <Button Padding="0" Text="{Binding RideStatusText}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" HeightRequest="40"
+                                TextColor="White" HorizontalOptions="FillAndExpand"    
+                                   FontSize="Large" BackgroundColor="{StaticResource MainColor}" Command="{Binding Path=BindingContext.RideStatusCommand, Source={x:Reference lstViewOrder}}" CommandParameter="{Binding .}"/>
+
+                                                    <BoxView WidthRequest="1" VerticalOptions="Center" BackgroundColor="White"></BoxView>
+
+                                                    <Button BindingContext="{Binding Source={x:Reference lstViewOrder}, Path=BindingContext}" 
+                                                                              Command="{Binding ChatCommand}" 
+                                                            CommandParameter="{Binding Source={x:Reference frameHistory}, Path=BindingContext}"
+                                         Text="{strings:Translate Chat}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" HeightRequest="40"
+                                TextColor="White" HorizontalOptions="FillAndExpand"    
+                                   FontSize="Large" BackgroundColor="{StaticResource MainColor}"/>
+
+                                                </StackLayout>
+                                            </StackLayout>
+
+                                        </Frame>
+
+
+
+                                        <Frame x:Name="frameHistory" HorizontalOptions="FillAndExpand" Margin="10" CornerRadius="15"
+                                           Padding="0" IsVisible="{Binding IsHistoryVisible}" BackgroundColor="#FEEFE1">
+
+
+                                            <StackLayout HorizontalOptions="FillAndExpand" Padding="0">
+
+                                                <StackLayout HorizontalOptions="FillAndExpand" Padding="5">
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                                        <Label Text="{Binding WorkerName}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                        <Label Text="{Binding WorkerRegNumber}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                    </StackLayout>
+      
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="worker_location.png" HeightRequest="25"/>
+                                                        <Label Text="{Binding WorkerLocation}" Style="{StaticResource LabelStyle}"/>
+                                                    </StackLayout>
+                              
+                                                </StackLayout>
+
+                                                <StackLayout HorizontalOptions="FillAndExpand" Padding="5" >
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                                        <Label Text="{Binding CustomerName}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                        <Label Text="{Binding CustomerRegNumber}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                    </StackLayout>
+                        
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="worker_location.png" HeightRequest="25"/>
+                                                        <Label Text="{Binding CustomerLocation}" Style="{StaticResource LabelStyle}"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+
+                                                <!--<StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource MainColor}">
+
+                                                    <Button Padding="0" Text="{Binding SendQuoteText}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" HeightRequest="40"
+                                TextColor="White" HorizontalOptions="FillAndExpand"    
+                                   FontSize="Large" BackgroundColor="{StaticResource MainColor}" Command="{Binding Path=BindingContext.SendQuoteCommand, Source={x:Reference lstViewOrder}}" CommandParameter="{Binding .}"/>
+
+                                                    <BoxView WidthRequest="1" VerticalOptions="Center" BackgroundColor="White"></BoxView>
+
+                                                    <Button BindingContext="{Binding Source={x:Reference lstViewOrder}, Path=BindingContext}" 
+                                                                              Command="{Binding ChatCommand}" 
+                                                            CommandParameter="{Binding Source={x:Reference frameHistory}, Path=BindingContext}"
+                                         Text="{strings:Translate Chat}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" HeightRequest="40"
+                                TextColor="White" HorizontalOptions="FillAndExpand"    
+                                   FontSize="Large" BackgroundColor="{StaticResource MainColor}"/>
+
+                                                </StackLayout>-->
+                                            </StackLayout>
+
+                                        </Frame>
+
+                                    </StackLayout>
+
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView IsVisible="{Binding ChatVisible}"  VerticalOptions="FillAndExpand" BackgroundColor="Transparent" ItemSelected="ChatList_ItemSelected"  SeparatorVisibility="None"   x:Name="chatList" ItemsSource="{Binding Items}" CachingStrategy="RecycleElement" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout  Orientation="Vertical" >
+                                    <StackLayout VerticalOptions="CenterAndExpand" Spacing="10" Padding="5,5,5,0" Orientation="Horizontal">
+                                        <ffimageloading:CachedImage x:Name="userImage" Aspect="AspectFit" HeightRequest="50" WidthRequest="50" LoadingPlaceholder="user.png" Source="{Binding PicturePath}">
+                                        </ffimageloading:CachedImage>
+                                        <StackLayout VerticalOptions="CenterAndExpand">
+                                            <Label VerticalTextAlignment="Center" Text="{Binding Name}" LineBreakMode="TailTruncation" TextColor="Black" FontSize="16"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <BoxView HeightRequest="0.5" Color="Silver"></BoxView>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

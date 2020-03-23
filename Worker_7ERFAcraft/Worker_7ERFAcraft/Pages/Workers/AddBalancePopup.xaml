@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+               xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+             x:Class="Worker_7ERFAcraft.Pages.AddBalancePopup">
+    <ScrollView>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="FrameContainer" BackgroundColor="Transparent"  Padding="0" HorizontalOptions="FillAndExpand">
+                <Frame HorizontalOptions="FillAndExpand"  BackgroundColor="White" Margin="30" CornerRadius="15" HasShadow="True" >
+                    <StackLayout HorizontalOptions="FillAndExpand"   >
+                        <Label Text="{strings:Translate Balance}" Style="{StaticResource HeaderLabelStyle}" />
+                        <Entry Style="{StaticResource EntryStyle}" Text="{Binding Balance}" Keyboard="Numeric"/>
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+                        <!--<Label Text="{strings:Translate ReceiptNumber}" Style="{StaticResource HeaderLabelStyle}" />
+                        <Entry Style="{StaticResource EntryStyle}" Text="{Binding ReceiptNumber}"/>
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>-->
+                        <Label Text="{strings:Translate ReceiptImage}" Style="{StaticResource HeaderLabelStyle}" />
+                        <Image Source="{Binding ImageReceipt}" Margin="0,10,0,0" HeightRequest="100" HorizontalOptions="FillAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ImageReceiptCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Button Command="{Binding updatebtnCommand}"  x:Name="updatebtn"   Text="{strings:Translate AddBalance}" WidthRequest="200" 
+                      Style="{StaticResource ButtonStyle}"   FontSize="Medium" VerticalOptions="EndAndExpand"  Margin="0,50,0,0" >
+                            <Button.BorderRadius>
+                                <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="20"
+                                Android ="30"  />
+                            </Button.BorderRadius>
+                        </Button>
+                        <Button Clicked="Cancelbtn_Clicked"  x:Name="cancelbtn"   Text="{strings:Translate Cancel}" WidthRequest="200" 
+                      Style="{StaticResource ButtonStyle}" BackgroundColor="Transparent" TextColor="{StaticResource RejectColor}" 
+                                FontSize="Medium" VerticalOptions="EndAndExpand"  Margin="0,0,0,0">
+                            <Button.BorderRadius>
+                                <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="20"
+                                Android ="30"  />
+                            </Button.BorderRadius>
+                        </Button>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ScrollView>
+</pages:PopupPage>

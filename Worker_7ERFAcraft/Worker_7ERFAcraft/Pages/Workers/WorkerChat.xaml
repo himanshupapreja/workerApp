@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository"
+                 xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+                xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+             x:Class="Worker_7ERFAcraft.Pages.Driver.WorkerChat">
+    <ContentPage.Content>
+        <StackLayout Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ListView  VerticalOptions="FillAndExpand" BackgroundColor="Transparent" ItemSelected="ChatList_ItemSelected"  SeparatorVisibility="None"   x:Name="chatList" ItemsSource="{Binding Items}" CachingStrategy="RecycleElement" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout  Orientation="Vertical" >
+                                <StackLayout VerticalOptions="CenterAndExpand" Spacing="10" Padding="5,5,5,0" Orientation="Horizontal">
+                                    <ffimageloading:CachedImage x:Name="userImage" Aspect="AspectFit" HeightRequest="50" WidthRequest="50" LoadingPlaceholder="user.png" Source="{Binding PicturePath}">
+                                    </ffimageloading:CachedImage>
+                                    <StackLayout VerticalOptions="CenterAndExpand">
+                                        <Label VerticalTextAlignment="Center" Text="{Binding Name}" LineBreakMode="TailTruncation" TextColor="Black" FontSize="16"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                                <BoxView HeightRequest="0.5" Color="Silver"></BoxView>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

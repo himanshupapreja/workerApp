@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="Worker_7ERFAcraft.Pages.WorkerAcceptPopup">
+    <ContentPage.Content>
+        <StackLayout x:Name="FrameContainer" HorizontalOptions="CenterAndExpand" BackgroundColor="White"
+                        VerticalOptions="CenterAndExpand" Padding="0" Margin="40,0,40,0">
+                <StackLayout Spacing="10"  BackgroundColor="Transparent" x:Name="layoutMain" 
+                             Orientation="Vertical" Padding="20" HorizontalOptions="StartAndExpand">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                                 Spacing="10" Padding="10">
+
+                        <Image Source="{Binding OptionOne}" HorizontalOptions="Start" 
+                               HeightRequest="25"
+                               WidthRequest="25" VerticalOptions="Center" Aspect="AspectFit"/>
+                        <Label TextColor="Gray" Style="{StaticResource LabelStyle}"
+                               LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"
+                              VerticalOptions="Center" Text="{strings:Translate AcceptOptionOne}"/>
+
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OptionOneSelected}"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                                 Spacing="10" Padding="10">
+
+                        <Image Source="{Binding OptionTwo}" HorizontalOptions="Start"
+                               HeightRequest="25"
+                               WidthRequest="25" VerticalOptions="Center" Aspect="AspectFit"/>
+                        <Label TextColor="Gray" Style="{StaticResource LabelStyle}"
+                               LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"
+                              VerticalOptions="Center" Text="{strings:Translate AcceptOptionTwo}"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OptionTwoSelected}"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                   
+                </StackLayout>
+            </StackLayout>
+
+    </ContentPage.Content>
+</pages:PopupPage>

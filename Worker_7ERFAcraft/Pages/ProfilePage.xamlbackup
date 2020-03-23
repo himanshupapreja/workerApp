@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository"
+             x:Class="Worker_7ERFAcraft.Pages.ProfilePage">
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
+            <Image Source="menu_profile_photo.png" HeightRequest="100" WidthRequest="100"></Image>
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="20,30,20,20">
+                <Image Source="username_black.png"  Style="{StaticResource ProfileImageStyle}"></Image>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Style="{StaticResource HeaderLabelStyle}"  Text="Username"/>
+                    <Label Style="{StaticResource LabelStyle}"  Text="Admin Smith"/>
+                </StackLayout>
+            </StackLayout>
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  Margin="20">
+                <Image Source="username_black.png" Style="{StaticResource ProfileImageStyle}"></Image>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Style="{StaticResource HeaderLabelStyle}"  Text="Full Name"/>
+                    <Label Style="{StaticResource LabelStyle}"  Text="Admin Smith"/>
+                </StackLayout>
+            </StackLayout>
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="20">
+                <Image Source="worker_contact.png" Style="{StaticResource ProfileImageStyle}"></Image>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Style="{StaticResource HeaderLabelStyle}"  Text="Phone Number"/>
+                    <Label Style="{StaticResource LabelStyle}"  Text="9876543210"/>
+                </StackLayout>
+            </StackLayout>
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="20">
+                <Image Source="country_black.png" Style="{StaticResource ProfileImageStyle}"></Image>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Style="{StaticResource HeaderLabelStyle}"  Text="Country"/>
+                    <Label Style="{StaticResource LabelStyle}"  Text="India"/>
+                </StackLayout>
+            </StackLayout>
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="20">
+                <Image Source="worker_location.png" Style="{StaticResource ProfileImageStyle}"></Image>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Style="{StaticResource HeaderLabelStyle}"  Text="Location"/>
+                    <Label Style="{StaticResource LabelStyle}"  Text="#1789 HHH, Delhi"/>
+                </StackLayout>
+            </StackLayout>
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+            
+            <Button Command="{Binding loginBtnCommand}"  x:Name="changePasswordbtn" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+                   StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" Text="Change Password" WidthRequest="200"
+                        TextColor="White" BackgroundColor="#4c6cbb " HorizontalOptions="CenterAndExpand" FontAttributes="Bold"
+                        BorderRadius="30" FontSize="Medium" VerticalOptions="EndAndExpand"  Margin="0,50,0,0"/>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

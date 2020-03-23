@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+             x:Class="Worker_7ERFAcraft.Pages.HelpPage">
+    <ContentPage.Content>
+        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#f7f7f7" >
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="10" >
+
+                <StackLayout HorizontalOptions="FillAndExpand"   Orientation="Horizontal" Padding="25,10,25,10">
+                    <Image Source="ic_help_contact_us.png"  Style="{StaticResource HelpLeftImageStyle}"></Image>
+                    <Label Text="{strings:Translate  ContactUs}" Style="{StaticResource HelpLabelStyle}"   ></Label>
+                    <Image  Style="{StaticResource HelpRightArrowImageStyle}"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ContactUs_Tapped">
+                        </TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <BoxView  Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+                <StackLayout HorizontalOptions="FillAndExpand"  Orientation="Horizontal" Padding="25,10,25,10">
+                    <Image Source="ic_help_privacy.png"  Style="{StaticResource HelpLeftImageStyle}"></Image>
+                    <Label Text="{strings:Translate PrivacyPolicy}"  Style="{StaticResource HelpLabelStyle}"  ></Label>
+                    <Image  Style="{StaticResource HelpRightArrowImageStyle}"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PrivacyPolicy_Tapped">
+                        </TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <BoxView  Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <StackLayout HorizontalOptions="FillAndExpand"   Orientation="Horizontal" Padding="25,10,25,10">
+                    <Image Source="ic_help_terms.png" Style="{StaticResource HelpLeftImageStyle}"></Image>
+                    <Label Text="{strings:Translate TermsConditions}" Style="{StaticResource HelpLabelStyle}"   ></Label>
+                    <Image  Style="{StaticResource HelpRightArrowImageStyle}"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TermsConditions_Tapped">
+                        </TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                
+                <BoxView  Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+                <StackLayout HorizontalOptions="FillAndExpand"   Orientation="Horizontal" Padding="25,10,25,10">
+                    <Image Source="ic_change_language.png" Style="{StaticResource HelpLeftImageStyle}"></Image>
+                    <Label Text="{strings:Translate ChangeLangauge}" Style="{StaticResource HelpLabelStyle}"   ></Label>
+                    <Image  Style="{StaticResource HelpRightArrowImageStyle}"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ChangeLangauge_Tapped">
+                        </TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <BoxView  Style="{StaticResource HorizontalBoxViewStyle}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

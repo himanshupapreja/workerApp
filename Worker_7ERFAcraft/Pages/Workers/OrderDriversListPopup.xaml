@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                  xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+             x:Class="Worker_7ERFAcraft.Pages.Workers.OrderDriversListPopup">
+    <ContentPage.Content>
+        <Frame HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+               BackgroundColor="White" CornerRadius="15"  Margin="40,20,40,20" Padding="0">
+            <StackLayout x:Name="FrameContainer" HorizontalOptions="CenterAndExpand" BackgroundColor="White"
+                        VerticalOptions="CenterAndExpand" Padding="0">
+
+                <Label Text="{strings:Translate DriversList}" HorizontalOptions="Center"
+                   Margin="0,10,0,0" FontSize="24"
+                   Style="{StaticResource HeaderLabelStyle}"/>
+
+                <ListView x:Name="lstViewDriver" SeparatorVisibility="None" HasUnevenRows="true" 
+                       ItemsSource="{Binding DriversList}"  
+                          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                       IsPullToRefreshEnabled="False" Margin="0,0,0,20">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <ViewCell.View>
+
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+                                        <!--History-->
+                                        <Frame x:Name="frameDriver" HorizontalOptions="FillAndExpand" Margin="20,20,20,0" CornerRadius="15"
+                                           Padding="5"  BackgroundColor="#FEEFE1">
+
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="2">
+                                                    <image:CircleImage Source="{Binding Image}" VerticalOptions="CenterAndExpand"
+                                                           WidthRequest="100" HeightRequest="100" 
+                                         Aspect="AspectFill" >
+                                                    </image:CircleImage>
+                                                    <StackLayout HorizontalOptions="FillAndExpand">
+                                                        <Label Text="{Binding RegistrationNumber}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                        <Label Text="{Binding Name}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" IsVisible="{Binding IsNotPending}">
+                                                    <Image Source="worker_location.png" HeightRequest="25"/>
+                                                    <Label Style="{StaticResource LabelStyle}" Text="{Binding Location}"  
+                               VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
+                                                </StackLayout>
+
+                                            </StackLayout>
+
+
+                                        </Frame>
+
+                                    </StackLayout>
+
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+
+        </Frame>
+
+    </ContentPage.Content>
+</pages:PopupPage>

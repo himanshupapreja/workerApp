@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+        xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository"
+                  xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+             x:Class="Worker_7ERFAcraft.Pages.Workers.OrderDriversListPopup">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+
+            <StackLayout x:Name="FrameContainer" BackgroundColor="Transparent"  VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                           Padding="0"   Spacing="0">
+                <Frame Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+               BackgroundColor="White" CornerRadius="15"  Padding="0">
+                    <StackLayout Spacing="0" Padding="0">
+
+                        <ListView x:Name="lstViewDriver" SeparatorVisibility="None" HasUnevenRows="true" 
+                       ItemsSource="{Binding DriverList}"  
+                          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                       IsPullToRefreshEnabled="False" Margin="0,0,0,20">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell >
+                                        <ViewCell.View>
+
+                                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+                                                <!--History-->
+                                                <Frame x:Name="frameDriver" HorizontalOptions="FillAndExpand" Margin="20,20,20,0" 
+                                                       CornerRadius="0" Padding="5"  BackgroundColor="#FEEFE1">
+
+                                                    <StackLayout Orientation="Vertical">
+                                                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="0">
+                                                            <image:CircleImage Source="{Binding Image}" VerticalOptions="CenterAndExpand"
+                                                           WidthRequest="100" HeightRequest="100" 
+                                         Aspect="AspectFill" >
+                                                            </image:CircleImage>
+                                                            <StackLayout HorizontalOptions="FillAndExpand" Padding="5">
+                                                                <Label Text="{Binding RegistrationNumber}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                                <Label Text="{Binding Name}" Style="{StaticResource HeaderLabelStyle}"/>
+                                                            </StackLayout>
+                                                        </StackLayout>
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+                                                            <Image Source="worker_location.png" HeightRequest="25"/>
+                                                            <Label Style="{StaticResource LabelStyle}" Text="{Binding Location}"  
+                               VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
+                                                        </StackLayout>
+
+                                                        <StackLayout Orientation="Horizontal" IsVisible="{Binding PriceVisible}" HorizontalOptions="StartAndExpand" Padding="5" 
+                                                                    >
+                                                            <Label Style="{StaticResource HeaderLabelStyle}" Text="{strings:Translate Price}"  
+                               VerticalOptions="StartAndExpand" VerticalTextAlignment="Center"/>
+                                                            <Label Style="{StaticResource LabelStyle}" Text="{Binding Price}"  
+                               VerticalOptions="StartAndExpand" VerticalTextAlignment="Center"/>
+                                                        </StackLayout>
+
+                                                        <StackLayout Orientation="Horizontal"  IsVisible="{Binding EstimatedTimeVisible}" HorizontalOptions="StartAndExpand" 
+                                                                    Padding="5">
+                                                            <Label Style="{StaticResource HeaderLabelStyle}" Text="{strings:Translate EstimatedTime}"  
+                               VerticalOptions="StartAndExpand" VerticalTextAlignment="Center"/>
+                                                            <Label Style="{StaticResource LabelStyle}" Text="{Binding EstimatedTime}"  
+                               VerticalOptions="StartAndExpand" VerticalTextAlignment="Center"/>
+                                                        </StackLayout>
+
+                                                        <Label Style="{StaticResource HeaderLabelStyle}" IsVisible="{Binding NoPriceVisible}"
+                                                               Text="{strings:Translate WaitingForConfirmation}"  HorizontalOptions="StartAndExpand"
+                               VerticalOptions="StartAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+
+                                                        <StackLayout Orientation="Horizontal" IsVisible="{Binding ButtonVisible}" BackgroundColor="{StaticResource MainColor}">
+                                                            <Button  BindingContext="{Binding Source={x:Reference lstViewDriver}, Path=BindingContext}" 
+                                                                              Command="{Binding AcceptCommand}" 
+                                                            CommandParameter="{Binding Source={x:Reference frameDriver}, Path=BindingContext}"
+                                         Text="{strings:Translate Accept}" IsEnabled="{Binding AcceptEnable}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" HeightRequest="40"
+                                TextColor="White" HorizontalOptions="FillAndExpand"    
+                                   FontSize="Large" BackgroundColor="{StaticResource MainColor}"/>
+
+                                                            <BoxView WidthRequest="1" VerticalOptions="Center" BackgroundColor="White"></BoxView>
+
+                                                            <Button BindingContext="{Binding Source={x:Reference lstViewDriver}, Path=BindingContext}" 
+                                                                              Command="{Binding ChatCommand}" 
+                                                            CommandParameter="{Binding Source={x:Reference frameDriver}, Path=BindingContext}"
+                                         Text="{strings:Translate Chat}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" HeightRequest="40"
+                                TextColor="White" HorizontalOptions="FillAndExpand"    
+                                   FontSize="Large" BackgroundColor="{StaticResource MainColor}"/>
+
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+
+
+                                                </Frame>
+
+                                            </StackLayout>
+
+                                        </ViewCell.View>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                    </StackLayout>
+
+                </Frame>
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

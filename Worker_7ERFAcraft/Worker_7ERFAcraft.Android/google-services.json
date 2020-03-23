@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "306830392881",
+    "firebase_url": "https://alpine-zodiac-232721.firebaseio.com",
+    "project_id": "alpine-zodiac-232721",
+    "storage_bucket": "alpine-zodiac-232721.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306830392881:android:9bcacfa7e41644bc",
+        "android_client_info": {
+          "package_name": "com.orem.Worker_7ERFAcraft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306830392881-mv401r2jl519v5g17e6mkmsb07bd9j3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZZeAbxv2fiZE_o58aaw1jtgS--Fagpy0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "306830392881-mv401r2jl519v5g17e6mkmsb07bd9j3a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "306830392881-lq0ljm1qc978i94hoqvavlp11i4dsaov.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.orem.WorkerERFAcraft"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306830392881:android:c0a0aabd7faee8b2",
+        "android_client_info": {
+          "package_name": "com.orem.mawjood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306830392881-mv401r2jl519v5g17e6mkmsb07bd9j3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZZeAbxv2fiZE_o58aaw1jtgS--Fagpy0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "306830392881-mv401r2jl519v5g17e6mkmsb07bd9j3a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "306830392881-lq0ljm1qc978i94hoqvavlp11i4dsaov.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.orem.WorkerERFAcraft"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

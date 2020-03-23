@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Worker_7ERFAcraft.Pages.HomeVideoPage"
+                  xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+                 
+                xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical"
+                          AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="Transparent">
+
+                <Grid
+                       RelativeLayout.WidthConstraint="{ConstraintExpression
+                     Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression
+                    Type=RelativeToParent,Property=Height,Factor=1,Constant=0}" 
+                        
+                        Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*">
+                        </ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*">
+                        </RowDefinition>
+                    </Grid.RowDefinitions>
+
+
+                    <Image x:Name="image"  Grid.Row="0" Grid.Column="0" Source="{Binding MediaName}" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand" 
+                                                                                Aspect="AspectFill"  />
+
+                    <!--<forms:MediaElement Grid.Row="0" Grid.Column="0" Source="{Binding MediaNameUrl}"   HorizontalOptions="FillAndExpand"
+                                                                    BackgroundColor="Transparent" VerticalOptions="FillAndExpand"
+                        x:Name="video" IsLooping="True"  AreTransportControlsEnabled="true"  IsVisible="{Binding IsVideo}"/>-->
+
+
+
+
+
+                    <ActivityIndicator IsVisible="{Binding IsLoading}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   IsRunning="True"                                   
+                                   Color="{StaticResource MainColor}"/>
+
+
+
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Orientation="Horizontal" IsVisible="{Binding IsShownHeader}">
+                        <StackLayout x:Name="LayoutClose" HorizontalOptions="FillAndExpand"   Margin="15" >
+
+                            <Frame BackgroundColor="Transparent"  BorderColor="{StaticResource GrayColor}" Padding="10" CornerRadius="5"
+                                   HorizontalOptions="Start">
+                                <StackLayout   Orientation="Horizontal">
+                                    <StackLayout BackgroundColor="Transparent">
+                                        <Label Text="{Binding Min}" Style="{StaticResource LabelStyle}" TextColor="White" FontSize="50"/>
+                                        <Label Text="{strings:Translate Minutes}" Style="{StaticResource LabelStyle}" TextColor="White" Margin="5,0,0,0"
+                                               HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                                    <BoxView Style="{StaticResource VerticalBoxViewStyle}" Margin="10"/>
+                                    <StackLayout BackgroundColor="Transparent">
+                                        <Label Text="{Binding Sec}" Style="{StaticResource LabelStyle}"  TextColor="White" FontSize="50"/>
+                                        <Label Text="{strings:Translate Seconds}" Style="{StaticResource LabelStyle}" TextColor="White" Margin="5,0,0,0"
+                                               HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                            <!--<Button HorizontalOptions="Start"  Text="{Binding Time}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" BackgroundColor="Transparent" Margin="0,15,0,0"
+                                TextColor="White"  FontSize="Large"     >
+                                <Button.BorderRadius>
+                                    <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="5"
+                                Android ="10"  />
+                                </Button.BorderRadius>
+                            </Button>-->
+                            
+                             
+                        </StackLayout>
+                        <Image  x:Name="imgClose" Source="close_new.png"  WidthRequest="50" HeightRequest="50" 
+                        VerticalOptions="Start" HorizontalOptions="End" Margin="15"  >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding btnCloseCommand}"  >
+                                </TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding btnCloseCommand}">
+                            </TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    
+                </Grid> 
+ 
+
+
+            </StackLayout>
+
+             
+               
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

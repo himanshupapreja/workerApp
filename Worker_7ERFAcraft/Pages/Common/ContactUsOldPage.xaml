@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository"
+              xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+             x:Class="Worker_7ERFAcraft.Pages.ContactUsOldPage">
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
+
+
+                <Label Style="{StaticResource HeaderLabelStyle}"  Text="{strings:Translate Email}" Margin="0,30,0,0"/>
+                        <Entry Style="{StaticResource EntryStyle}"  Text="{Binding Email}"/>
+                    
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+
+                <Label Style="{StaticResource HeaderLabelStyle}"  Text="{strings:Translate Subject}" Margin="0,15,0,0"/>
+                <Entry Style="{StaticResource EntryStyle}"  Text="{Binding Subject}"/>
+                   
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+
+                <Label Style="{StaticResource HeaderLabelStyle}"  Text="{strings:Translate Message}" Margin="0,15,0,0"/>
+                <Editor Style="{StaticResource EditorStyle}"   Text="{Binding Message}" />
+                    
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+
+
+                <Button Command="{Binding sendBtnCommand}"  x:Name="sendbtn" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" HeightRequest="70"
+                   StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" Text="{strings:Translate Send}" HorizontalOptions="FillAndExpand"
+                        TextColor="White" BackgroundColor="{StaticResource MainColor} " FontAttributes="Bold"  FontSize="Medium" VerticalOptions="EndAndExpand"  Margin="0,50,0,0"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

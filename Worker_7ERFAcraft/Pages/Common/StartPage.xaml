@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Worker_7ERFAcraft.Pages.StartPage"
+               xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository"
+               xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+             BackgroundImage="worker_customer.png">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20">
+            <Image Source="back_arrow.png" WidthRequest="25" HeightRequest="25"  HorizontalOptions="Start"
+               VerticalOptions="Center" IsVisible="False">
+                <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="20,0,0,0" />
+                        <On Platform="Android,UWP" Value="20,20,0,0" />
+                    </OnPlatform>
+                </Image.Margin>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Close_Tapped"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Margin="0,0,0,30">
+                <Image Source="logo_worker.png" HeightRequest="150" HorizontalOptions="FillAndExpand" Margin="40,0,40,0"/>
+
+                
+               
+                <Label StyleId="{x:Static adc:App_FontFamilies.BodyFont}" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" FontSize="Large" 
+                       HorizontalOptions="CenterAndExpand" Margin="0,40,0,40">
+
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span FontSize="Large" Text="{strings:Translate ChooseUser}" StyleId="{x:Static adc:App_FontFamilies.BodyFont}" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" ForegroundColor="#444444"/>
+                            <Span Text=" "/>
+                            <Span   FontSize="Large"  Text="{strings:Translate Customer}" StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" ForegroundColor="#444444"/>
+                            <Span Text=" "/>
+                            <Span FontSize="Large"  Text="{strings:Translate Or}" StyleId="{x:Static adc:App_FontFamilies.BodyFont}" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" ForegroundColor="#444444"/>
+                            <Span Text=" "/>
+                            <Span FontSize="Large"  Text="{strings:Translate Worker}" StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" ForegroundColor="#444444"/>
+                            <Span Text=" "/>
+                            <Span FontSize="Large"  Text="{strings:Translate Or}" StyleId="{x:Static adc:App_FontFamilies.BodyFont}" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" ForegroundColor="#444444"/>
+                            <Span Text=" "/>
+                            <Span FontSize="Large"  Text="{strings:Translate Driver}" StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" ForegroundColor="#444444"/>
+
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                
+                <StackLayout HorizontalOptions="FillAndExpand"   Orientation="Vertical"  >
+
+                    <Button Clicked="LoginAsCustomer_Tapped"   HeightRequest="60"
+                                         Text="{strings:Translate Customer}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" 
+                                TextColor="White" HorizontalOptions="FillAndExpand"    
+                                   FontSize="Large"   BackgroundColor="{StaticResource MainColor}"  
+                               Margin="0,10,0,0"  >
+                    </Button>
+
+
+                    <Button Clicked="LoginAsWorkerTapped" HeightRequest="60"
+                                         Text="{strings:Translate Worker}" FontFamily="{x:Static adc:App_FontFamilies.MediumFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.MediumFont}"
+                                TextColor="White" HorizontalOptions="FillAndExpand"    
+                                   FontSize="Large"   BackgroundColor="{StaticResource MainColor}"  
+                               Margin="0,10,0,0"  >
+                    </Button>
+
+
+                    <Button Clicked="LoginAsDriverTapped" HeightRequest="60"
+                                         Text="{strings:Translate Driver}" FontFamily="{x:Static adc:App_FontFamilies.MediumFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.MediumFont}"
+                                TextColor="White" HorizontalOptions="FillAndExpand"    
+                                   FontSize="Large"   BackgroundColor="{StaticResource MainColor}"  
+                               Margin="0,10,0,0"  >
+                    </Button>
+
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

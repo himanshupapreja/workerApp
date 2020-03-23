@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Worker_7ERFAcraft.Pages.WorkerListPage"
+                   xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+                 xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+                xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository" 
+               xmlns:custom="clr-namespace:Worker_7ERFAcraft.CustomControls">
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BGColor}"
+                              AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+
+                <ContentView IsVisible="{Binding InternetVisible}" x:Name="NoInternet" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                    <StackLayout BackgroundColor="Transparent" Padding="10" Spacing="10">
+                        <Image Source="nointernet.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" Margin="0,10,0,0"></Image>
+                        <Label Text="{strings:Translate Connection failed}" FontSize="30" HorizontalOptions="Center" VerticalOptions="Start" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" 
+                               StyleId="{x:Static adc:App_FontFamilies.BodyFont}"></Label>
+                        <custom:LineLabel Text="{strings:Translate InternetMsg}" FontSize="Small" HorizontalOptions="StartAndExpand" LineSpacing="1.2"
+                           VerticalOptions="Start" HorizontalTextAlignment="Center" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" StyleId="{x:Static adc:App_FontFamilies.BodyFont}"></custom:LineLabel>
+                        <Button FontFamily="{x:Static adc:App_FontFamilies.BodyFont}"  StyleId="{x:Static adc:App_FontFamilies.BodyFont}" Margin="0,10,0,0"
+                    HorizontalOptions="Center"  TextColor="White" BackgroundColor="#3A990F"
+                    Text="{strings:Translate TryAgain}" FontSize="Small" WidthRequest="180" HeightRequest="50"
+                        FontAttributes="Bold" BorderRadius="15" Clicked="Try_Again_Button_Clicked"></Button>
+                    </StackLayout>
+                </ContentView>
+
+                <ContentView x:Name="NoData"  BackgroundColor="Transparent" IsVisible="{Binding NoDataVisible}"
+                             HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                    <StackLayout BackgroundColor="Transparent" Padding="10" Spacing="10">
+                        <Image Source="no_data_found.png" VerticalOptions="Start" HorizontalOptions="Center" HeightRequest="250" Margin="0,30,0,0"></Image>
+                        <custom:LineLabel LineSpacing="1.2" Text="{strings:Translate NoDataPresent}" FontSize="Medium" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" 
+                           VerticalOptions="Center" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}"
+                                      StyleId="{x:Static adc:App_FontFamilies.BodyFont}"></custom:LineLabel>
+                    </StackLayout>
+                </ContentView>
+                <StackLayout IsVisible="{Binding MainVisible}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+
+
+                    <StackLayout HorizontalOptions="FillAndExpand"   Spacing="0" Margin="5" >
+                        <Frame BackgroundColor="#ffffff" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
+
+
+                            <Entry x:Name="txtLocation" Text="{Binding Location}" Placeholder="{strings:Translate CurrentLocation}" BackgroundColor="White"  Margin="5,0,0,0"
+                             HeightRequest="40"      Style="{StaticResource EntryStyle}" HorizontalOptions="FillAndExpand" ReturnCommand="{Binding LocationCommand}"  >
+                            </Entry>
+
+
+                        </Frame>
+                        <ListView x:Name="lstViewPlaces" SeparatorVisibility="None" HasUnevenRows="False"  SelectedItem="{Binding LocSelectedItem}"
+                 HorizontalOptions="FillAndExpand" HeightRequest="{Binding GridLocHeight}" ItemsSource="{Binding LocationList}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ViewCell.View>
+                                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsClippedToBounds="True" Padding="0">
+                                                <Label  Style="{StaticResource LabelStyle}" FontSize="15"                                                    Text="{Binding description}"  />
+                                            </StackLayout>
+
+
+                                        </ViewCell.View>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <custom:CustomMap x:Name="map"   HorizontalOptions="FillAndExpand" IsShowingUser="True" 
+                              HeightRequest="200" >
+
+                    </custom:CustomMap>
+                    <!--<StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Spacing="0" Margin="15,5,15,5" >
+                        <Frame BackgroundColor="#ffffff" CornerRadius="30" Padding="0" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0">
+                                <StackLayout  BackgroundColor="White" Spacing="10" Padding="10">
+                                    <Image Source="ic_search.png" HeightRequest="25" WidthRequest="25" VerticalOptions="CenterAndExpand">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding SearchReturnCommand}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                                <Entry x:Name="txtSearch" Text="{Binding SearchText}" Placeholder="{strings:Translate SearchWorker}" BackgroundColor="White" Margin="5,0,0,0"
+                              HorizontalOptions="FillAndExpand"     Style="{StaticResource EntryStyle}" ReturnCommand="{Binding SearchReturnCommand}"></Entry>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>-->
+                    
+                    <ListView   x:Name="lstViewWorker" SeparatorVisibility="None" HasUnevenRows="true" 
+                       ItemsSource="{Binding WorkerList}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  
+                        IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshDataCommand}" IsRefreshing="{Binding IsRefreshingData}"
+                        SelectedItem="{Binding SelectedWorkerItem,Mode=TwoWay}" Margin="0,5,0,0">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell >
+                                    <ViewCell.View>
+
+                                        <Frame x:Name="Item" HorizontalOptions="FillAndExpand" Margin="15,0,15,5" CornerRadius="10" Padding="10">
+                                            
+                                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="2">
+                                                <Grid Margin="0,0,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="100">
+                                                        </ColumnDefinition>
+                                                        <ColumnDefinition Width="*">
+                                                        </ColumnDefinition>
+                                                        <ColumnDefinition Width="80">
+                                                        </ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto">
+                                                        </RowDefinition>
+                                                    </Grid.RowDefinitions>
+
+
+                                                    <image:CircleImage Grid.Row="0" Grid.Column="0" Source="{Binding Image}"  x:Name="imgProfile" VerticalOptions="FillAndExpand"
+                                                           WidthRequest="100"    Aspect="AspectFill"  >
+                                                    </image:CircleImage>
+                                                    
+                                                    
+
+                                                    <StackLayout Grid.Row="0" Grid.Column="1" Margin="5,0,0,0">
+                                                        <Label Text="{Binding RegNo}" Style="{StaticResource HeaderLabelStyle}" FontSize="16"/>
+                                                        <Label Text="{Binding Name}" Style="{StaticResource HeaderLabelStyle}" FontSize="14" TextColor="{StaticResource NewGrayColor}"
+                                                               LineBreakMode="TailTruncation"/>
+                                                        <StackLayout  Orientation="Horizontal"  HorizontalOptions="FillAndExpand" Spacing="0">
+                                                            <!--<rating:SfRating x:Name="rating"  ItemCount="5"   ItemSize="20" Value="{Binding Rating}" ReadOnly="True"
+                                  VerticalOptions="CenterAndExpand"  ItemSpacing="0">
+                                                                <rating:SfRating.RatingSettings>
+                                                                    <rating:SfRatingSettings RatedFill="#ffc600" UnRatedFill="#bfbfbf" RatedStrokeWidth="0" UnRatedStrokeWidth="0"
+                                                                />
+                                                                </rating:SfRating.RatingSettings>
+                                                            </rating:SfRating>-->
+                                                            <Image   Source="{Binding ImgRate1}" HeightRequest="20"  WidthRequest="15" />
+
+                                                            <Image   Source="{Binding ImgRate2}" HeightRequest="20"   WidthRequest="15" />
+
+                                                            <Image   Source="{Binding ImgRate3}" HeightRequest="20" WidthRequest="15"    />
+
+                                                            <Image   Source="{Binding ImgRate4}" HeightRequest="20"  WidthRequest="15" />
+
+                                                            <Image   Source="{Binding ImgRate5}" HeightRequest="20"  WidthRequest="15"  />
+                                                            
+                                                            <Label Text="{Binding TotalReviews}" Style="{StaticResource LabelStyle}" 
+                                                       VerticalOptions="CenterAndExpand" LineBreakMode="TailTruncation"/>
+
+                                                        </StackLayout>
+                                                        
+
+
+
+                                                            <Label Text="{strings:Translate ViewDetails}" Style="{StaticResource LabelStyle}" FontSize="16" TextColor="{StaticResource MainColor}"
+                                                       >
+                                                                <Label.GestureRecognizers>
+                                                                    <TapGestureRecognizer BindingContext="{Binding Source={x:Reference lstViewWorker}, Path=BindingContext}" Command="{Binding workerProfileCommand}" CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" />
+                                                                </Label.GestureRecognizers>
+                                                            </Label>
+
+                                                      
+                                                        </StackLayout>
+
+
+                                                    <Frame Grid.Row="0" Grid.Column="2" CornerRadius="10" Padding="10" BackgroundColor="{StaticResource MainColor}" 
+                                                           VerticalOptions="Center">
+                                                        <Label        Text="{strings:Translate HireMe}"   FontFamily="{x:Static adc:App_FontFamilies.BodyFont}"  
+                                                              StyleId="{x:Static adc:App_FontFamilies.BodyFont}"   FontSize="13"  VerticalOptions="CenterAndExpand" TextColor="White"
+                                                                      HorizontalOptions="Center">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer BindingContext="{Binding Source={x:Reference lstViewWorker}, Path=BindingContext}" Command="{Binding workerDetailCommand}" CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" />
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                        <Frame.GestureRecognizers>
+                                                            <TapGestureRecognizer BindingContext="{Binding Source={x:Reference lstViewWorker}, Path=BindingContext}" Command="{Binding workerDetailCommand}" CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" />
+                                                        </Frame.GestureRecognizers>
+                                                    </Frame>
+                                                     
+                                                </Grid>
+                                            </StackLayout>
+                                        </Frame>
+
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout AbsoluteLayout.LayoutFlags="All"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         x:Name="activityIndicator"
+                         IsVisible="{Binding IsLoading}">
+                <ActivityIndicator 
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"
+                                   IsRunning="True"                                   
+                                   Color="{StaticResource MainColor}"
+                    Margin="50"/>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

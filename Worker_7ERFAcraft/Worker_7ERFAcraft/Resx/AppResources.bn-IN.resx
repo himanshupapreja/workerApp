@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accept" xml:space="preserve">
+    <value>গ্রহণ করা</value>
+  </data>
+  <data name="AddBalance" xml:space="preserve">
+    <value>ব্যালেন্স যোগ করুন</value>
+  </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>বিস্তারিত যোগ করুন</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>ঠিকানা</value>
+  </data>
+  <data name="AgreeWithTerms" xml:space="preserve">
+    <value>আমি একমত</value>
+  </data>
+  <data name="AlreadyhaveAccount" xml:space="preserve">
+    <value>ইতিমধ্যে একটি সদস্যপদ আছে?</value>
+  </data>
+  <data name="AppVideo" xml:space="preserve">
+    <value>অ্যাপ্লিকেশন ভিডিও</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>আরবি</value>
+  </data>
+  <data name="AvailableForJob" xml:space="preserve">
+    <value>কাজের জন্য উপলব্ধ?</value>
+  </data>
+  <data name="Bangali" xml:space="preserve">
+    <value>বাঙালি</value>
+  </data>
+  <data name="Calculator" xml:space="preserve">
+    <value>গণক</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>বাতিল</value>
+  </data>
+  <data name="CancelOrder" xml:space="preserve">
+    <value>এই আদেশ বাতিল করুন</value>
+  </data>
+  <data name="ChangeLangauge" xml:space="preserve">
+    <value>ভাষা পরিবর্তন করুন</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>পাসওয়ার্ড পরিবর্তন করুন</value>
+  </data>
+  <data name="ChooseCategory" xml:space="preserve">
+    <value>বিভাগ নির্বাচন</value>
+  </data>
+  <data name="ChooseLanguage" xml:space="preserve">
+    <value>ভাষা নির্বাচন করুন</value>
+  </data>
+  <data name="ChooseReason" xml:space="preserve">
+    <value>কারণ চয়ন করুন</value>
+  </data>
+  <data name="ChooseUser" xml:space="preserve">
+    <value>আপনি একটি হিসাবে নিবন্ধন করবে যদি নির্বাচন করুন</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>ঘনিষ্ঠ</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>কোমপানির নাম</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>সম্পূর্ণ</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>পাসওয়ার্ড নিশ্চিত করুন</value>
+  </data>
+  <data name="Connectionfailed" xml:space="preserve">
+    <value>সংযোগ ব্যর্থ হয়েছে</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>যোগাযোগ</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>আমাদের সাথে যোগাযোগ করুন</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>দেশ</value>
+  </data>
+  <data name="CreateNewAccount" xml:space="preserve">
+    <value>একটি নতুন অ্যাকাউন্ট তৈরি করুন</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>বর্তমান পাসওয়ার্ড</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>ক্রেতা</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>সম্পন্ন</value>
+  </data>
+  <data name="DontHaveAccount" xml:space="preserve">
+    <value>কোনো একাউন্ট এখনও আছে না?</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>সম্পাদন করা</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>ইমেইল</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>ইংরেজি</value>
+  </data>
+  <data name="EnterAmount" xml:space="preserve">
+    <value>পরিমান লিখুন:</value>
+  </data>
+  <data name="ExitApp" xml:space="preserve">
+    <value>আপনি কি সত্যিই অ্যাপ্লিকেশন থেকে প্রস্থান করতে চান?</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>প্রতিক্রিয়া</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>পাসওয়ার্ড ভুলে গেছেন?</value>
+  </data>
+  <data name="ForgotPasswordString" xml:space="preserve">
+    <value>আপনার ইমেল ঠিকানা লিখুন, আমরা আপনাকে একটি ইমেল পাঠাব যা আপনি আপনার পাসওয়ার্ড পুনরায় সেট করতে পারবেন।</value>
+  </data>
+  <data name="ForgotYourPassword" xml:space="preserve">
+    <value>আপনি কি পাসওয়ার্ড ভুলে গেছেন?</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>পুরো নাম</value>
+  </data>
+  <data name="FullNameorCompanyName" xml:space="preserve">
+    <value>সম্পূর্ণ নাম বা কোম্পানির নাম</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>সাহায্য</value>
+  </data>
+  <data name="Hindi" xml:space="preserve">
+    <value>হিন্দি</value>
+  </data>
+  <data name="HireMe" xml:space="preserve">
+    <value>আমার ভাড়া</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>ইতিহাস</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>বাড়ি</value>
+  </data>
+  <data name="InternetMsg" xml:space="preserve">
+    <value>সংযোগ করার সময় একটি ত্রুটি ছিল। আপনার ইন্টারনেট চেক করুন এবং আবার চেষ্টা করুন।</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>তালিকা</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>অবস্থান</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>লগইন</value>
+  </data>
+  <data name="LoginString" xml:space="preserve">
+    <value>ফোন নম্বর এবং পাসওয়ার্ড লিখুন দয়া করে</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>প্রস্থান</value>
+  </data>
+  <data name="LogoutMsg" xml:space="preserve">
+    <value>আপনি লগ আউট করতে চান?</value>
+  </data>
+  <data name="LongOrderPer" xml:space="preserve">
+    <value>আপনি এই দীর্ঘ আদেশ% 5 দিতে হবে</value>
+  </data>
+  <data name="Map" xml:space="preserve">
+    <value>মানচিত্র</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>বার্তা</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>মিনিট</value>
+  </data>
+  <data name="MyAccount" xml:space="preserve">
+    <value>আমার অ্যাকাউন্ট</value>
+  </data>
+  <data name="MyBookings" xml:space="preserve">
+    <value>আমার বুকিং</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>নতুন পাসওয়ার্ড</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>পরবর্তী</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>না</value>
+  </data>
+  <data name="NoDataPresent" xml:space="preserve">
+    <value>কোন তথ্য উপস্থিত নেই</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>ঠিক আছে</value>
+  </data>
+  <data name="OnGoing" xml:space="preserve">
+    <value>নিরন্তর</value>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>অথবা</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>অন্যান্য</value>
+  </data>
+  <data name="OTPVerification" xml:space="preserve">
+    <value>হে টি পি যাচাই</value>
+  </data>
+  <data name="OTPVerificationString" xml:space="preserve">
+    <value>কোড আপনার নিবন্ধিত ফোন নম্বর পাঠান</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>পাসওয়ার্ড</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>মুলতুবী</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>ফোন নম্বর</value>
+  </data>
+  <data name="Photos_Videos" xml:space="preserve">
+    <value>ফটো এবং ভিডিও</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>গোপনীয়তা নীতি</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>প্রোফাইলের</value>
+  </data>
+  <data name="RateOrder" xml:space="preserve">
+    <value>এই আদেশ রেট</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>প্রত্যাখ্যান</value>
+  </data>
+  <data name="ResidencyNumber" xml:space="preserve">
+    <value>রেসিডেন্সি নম্বর বা আইডেন্টিটি কার্ড</value>
+  </data>
+  <data name="ResidencyPicture" xml:space="preserve">
+    <value>রেসিডেন্সি সংখ্যা বা পরিচয়পত্রের ছবি</value>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>পর্যালোচনা</value>
+  </data>
+  <data name="SearchCategory" xml:space="preserve">
+    <value>অনুসন্ধান বিভাগ</value>
+  </data>
+  <data name="SearchWorker" xml:space="preserve">
+    <value>কর্মী অনুসন্ধান করুন</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>সেকেন্ড</value>
+  </data>
+  <data name="SelectCountry" xml:space="preserve">
+    <value>দেশ নির্বাচন করুন</value>
+  </data>
+  <data name="SelectMonth" xml:space="preserve">
+    <value>মাস নির্বাচন করুন:</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>পাঠান</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>সার্ভিস</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>ভাগ</value>
+  </data>
+  <data name="ShareFeedback" xml:space="preserve">
+    <value>প্রতিক্রিয়া ভাগ</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>নিবন্ধন করুন</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>বিষয়</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>জমাকৃত</value>
+  </data>
+  <data name="TermsConditions" xml:space="preserve">
+    <value>শর্তাবলী</value>
+  </data>
+  <data name="TimeFrom" xml:space="preserve">
+    <value>সময় থেকে</value>
+  </data>
+  <data name="TimeTo" xml:space="preserve">
+    <value>সময়</value>
+  </data>
+  <data name="TotalBalance" xml:space="preserve">
+    <value>মোট ভারসাম্য:</value>
+  </data>
+  <data name="TotalJobs" xml:space="preserve">
+    <value>মোট চাকরি</value>
+  </data>
+  <data name="TryAgain" xml:space="preserve">
+    <value>আবার চেষ্টা করুন</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>হালনাগাদ</value>
+  </data>
+  <data name="Urdu" xml:space="preserve">
+    <value>উর্দু</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>ব্যবহারকারীর নাম</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>বিস্তারিত দেখুন</value>
+  </data>
+  <data name="WorkDate" xml:space="preserve">
+    <value>কাজের তারিখ</value>
+  </data>
+  <data name="WorkDetails" xml:space="preserve">
+    <value>কাজের বিবরণ</value>
+  </data>
+  <data name="Worker" xml:space="preserve">
+    <value>কর্মী</value>
+  </data>
+  <data name="WorkerList" xml:space="preserve">
+    <value>শ্রমিক তালিকা</value>
+  </data>
+  <data name="WorkerProfile" xml:space="preserve">
+    <value>কর্মী প্রোফাইল</value>
+  </data>
+  <data name="WorkFromDate" xml:space="preserve">
+    <value>তারিখ থেকে কাজ</value>
+  </data>
+  <data name="WorkHours" xml:space="preserve">
+    <value>কাজ ঘন্টা</value>
+  </data>
+  <data name="WorkNotes" xml:space="preserve">
+    <value>কাজের নোট</value>
+  </data>
+  <data name="WorkToDate" xml:space="preserve">
+    <value>তারিখ কাজ</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>হাঁ</value>
+  </data>
+  <data name="YourDebt" xml:space="preserve">
+    <value>আপনার ঋণ</value>
+  </data>
+  <data name="AcceptThisOrder" xml:space="preserve">
+    <value>আপনি কি এই আদেশটি স্বীকার করতে চান?</value>
+  </data>
+  <data name="CompleteThisOrder" xml:space="preserve">
+    <value>আপনি কি এই আদেশটি সম্পূর্ণ করতে চান?</value>
+  </data>
+  <data name="RejectThisOrder" xml:space="preserve">
+    <value>আপনি কি এই আদেশ প্রত্যাখ্যান করতে চান?</value>
+  </data>
+  <data name="AcceptTerms" xml:space="preserve">
+    <value>শর্তাবলী গ্রহণ করুন</value>
+  </data>
+  <data name="CaptureVideo" xml:space="preserve">
+    <value>ভিডিও চিত্র ধারণ করা</value>
+  </data>
+  <data name="ChooseCancellationReasonorEnterOtherReason" xml:space="preserve">
+    <value>বাতিলকরণ কারণ বা অন্য কারণ লিখুন নির্বাচন করুন</value>
+  </data>
+  <data name="ChoosefromGallery" xml:space="preserve">
+    <value>গ্যালারি থেকে চয়ন করুন</value>
+  </data>
+  <data name="ChoosePhoto" xml:space="preserve">
+    <value>ছবি নির্বাচন করুন</value>
+  </data>
+  <data name="ChoosePhotofromGallery" xml:space="preserve">
+    <value>গ্যালারি থেকে ছবি নির্বাচন করুন</value>
+  </data>
+  <data name="ChoosePhotoVideo" xml:space="preserve">
+    <value>ছবি / ভিডিও চয়ন করুন</value>
+  </data>
+  <data name="ChooseTimeFrom" xml:space="preserve">
+    <value>থেকে সময় চয়ন করুন</value>
+  </data>
+  <data name="ChooseTimeTo" xml:space="preserve">
+    <value>সময় চয়ন করুন</value>
+  </data>
+  <data name="EnterComments" xml:space="preserve">
+    <value>মন্তব্য লিখুন</value>
+  </data>
+  <data name="EnterDetails" xml:space="preserve">
+    <value>বিস্তারিত লিখুন</value>
+  </data>
+  <data name="EnterEmail" xml:space="preserve">
+    <value>ইমেইল প্রদান করুন</value>
+  </data>
+  <data name="EnterSubject" xml:space="preserve">
+    <value>বিষয় লিখুন</value>
+  </data>
+  <data name="EntervalidEmail" xml:space="preserve">
+    <value>সঠিক ইমেইল এড্রেস প্রদান করুন</value>
+  </data>
+  <data name="Giveatleastonestar" xml:space="preserve">
+    <value>অন্তত একটি তারকা দিন</value>
+  </data>
+  <data name="NewPasswordSameAsOldPassword" xml:space="preserve">
+    <value>নতুন পাসওয়ার্ড পুরানো পাসওয়ার্ড সঙ্গে মেলে না</value>
+  </data>
+  <data name="PasswordsDoNotMatch" xml:space="preserve">
+    <value>পাসওয়ার্ড এবং পাসওয়ার্ড নিশ্চিত করুন মেলে না</value>
+  </data>
+  <data name="PleaseChooseResidencyPicture" xml:space="preserve">
+    <value>রেসিডেন্সি ছবি নির্বাচন করুন</value>
+  </data>
+  <data name="PleaseEnterBalance" xml:space="preserve">
+    <value>ব্যালান্স লিখুন দয়া করে</value>
+  </data>
+  <data name="PleaseEnterLocation" xml:space="preserve">
+    <value>অবস্থান লিখুন দয়া করে</value>
+  </data>
+  <data name="PleaseEnterName" xml:space="preserve">
+    <value>নাম লিখুন দয়া করে</value>
+  </data>
+  <data name="PleaseEnternewpassword" xml:space="preserve">
+    <value>নতুন পাসওয়ার্ড লিখুন দয়া করে</value>
+  </data>
+  <data name="PleaseEnteroldpassword" xml:space="preserve">
+    <value>পুরানো পাসওয়ার্ড লিখুন দয়া করে</value>
+  </data>
+  <data name="PleaseEnterpassword" xml:space="preserve">
+    <value>পাসওয়ার্ড লিখুন দয়া করে</value>
+  </data>
+  <data name="PleaseEnterPhoneNumber" xml:space="preserve">
+    <value>ফোন নম্বর লিখুন দয়া করে</value>
+  </data>
+  <data name="PleaseEnterReceiptNumberorChooseReceiptImage" xml:space="preserve">
+    <value>অনুগ্রহ করে নিবন্ধন নম্বর লিখুন অথবা রসিদ চিত্রটি নির্বাচন করুন</value>
+  </data>
+  <data name="PleaseEnterUsername" xml:space="preserve">
+    <value>ব্যবহারকারীর নাম লিখুন দয়া করে</value>
+  </data>
+  <data name="SelectatleastoneCategory" xml:space="preserve">
+    <value>অন্তত একটি বিভাগ নির্বাচন করুন</value>
+  </data>
+  <data name="SelectService" xml:space="preserve">
+    <value>সেবা নির্বাচন করুন</value>
+  </data>
+  <data name="TakePhoto" xml:space="preserve">
+    <value>ছবি তোল</value>
+  </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>বাতিল করা হয়েছে</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>সম্পন্ন</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>সেবা</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>ভারসাম্য</value>
+  </data>
+  <data name="ReceiptNumber" xml:space="preserve">
+    <value>রশিদ নম্বর</value>
+  </data>
+  <data name="ReceiptImage" xml:space="preserve">
+    <value>প্রাপ্তির ছবি</value>
+  </data>
+  <data name="CurrentLocation" xml:space="preserve">
+    <value>এখন যেখানে আছ</value>
+  </data>
+  <data name="GuestCustomer" xml:space="preserve">
+    <value>অতিথি গ্রাহক</value>
+  </data>
+  <data name="ChooseReceiptImage" xml:space="preserve">
+    <value>প্রাপ্তির কপি নির্বাচন করুন</value>
+  </data>
+  <data name="ForgotPasswordContactText" xml:space="preserve">
+    <value>আপনি উপরের উল্লিখিত ইমেলটিতে আপনার নতুন পাসওয়ার্ডটি খুঁজে পেতে পারেন অথবা নতুন পাসওয়ার্ড পেতে আপনি এই নম্বরটিতে যোগাযোগ করতে পারেন</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>সহজলভ্য</value>
+  </data>
+  <data name="Unavailable" xml:space="preserve">
+    <value>অপ্রাপ্য</value>
+  </data>
+  <data name="ContactEmail" xml:space="preserve">
+    <value>যোগাযোগের ই - মেইল</value>
+  </data>
+  <data name="ContactPhoneNumbers" xml:space="preserve">
+    <value>যোগাযোগ ফোন নম্বর</value>
+  </data>
+  <data name="Driver" xml:space="preserve">
+    <value>চালক</value>
+  </data>
+  <data name="CopyofCivilRegister" xml:space="preserve">
+    <value>সিভিল রেজিস্টার এর অনুলিপি (অ-সৌদি এবং পাসপোর্টের জন্য আবাসনের অনুলিপি)</value>
+  </data>
+  <data name="CopyofVehicleForm" xml:space="preserve">
+    <value>যানবাহনের ফর্মের অনুলিপি</value>
+  </data>
+  <data name="VehicleImage" xml:space="preserve">
+    <value>গাড়ির চিত্র</value>
+  </data>
+  <data name="UploadCopyofCivilRegister" xml:space="preserve">
+    <value>নাগরিক নিবন্ধকের অনুলিপি (অন-সৌদি এবং পাসপোর্টের অনুলিপি)</value>
+  </data>
+  <data name="UploadvehicleCopyImage" xml:space="preserve">
+    <value>যানবাহনের অনুলিপি চিত্র আপলোড করুন</value>
+  </data>
+  <data name="UploadVehicleImages" xml:space="preserve">
+    <value>গাড়ির চিত্র আপলোড করুন</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>চ্যাট</value>
+  </data>
+  <data name="ChatUsers" xml:space="preserve">
+    <value>ব্যবহারকারীদের সাথে চ্যাট করুন</value>
+  </data>
+  <data name="EnterMessage" xml:space="preserve">
+    <value>Enter Message</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>নতুন</value>
+  </data>
+  <data name="AcceptOptionOne" xml:space="preserve">
+    <value>আমি ক্লায়েন্টের বাড়িতে একটি বিতরণ পরিষেবা চাই।আমি ক্লায়েন্টের বাড়িতে একটি বিতরণ পরিষেবা চাই।</value>
+  </data>
+  <data name="AcceptOptionTwo" xml:space="preserve">
+    <value>আমি ক্লায়েন্টের বাড়িতে কোনও ডেলিভারি পরিষেবা চাই না।</value>
+  </data>
+  <data name="DriverAcceptRequest" xml:space="preserve">
+    <value>আপনি কি এই পরিষেবাটি গ্রহণের বিষয়ে নিশ্চিত?</value>
+  </data>
+  <data name="DriverRejectRequest" xml:space="preserve">
+    <value>আপনি কি নিশ্চিত যে আপনি এই পরিষেবাটি নিতে চান না?</value>
+  </data>
+  <data name="DriversList" xml:space="preserve">
+    <value>ড্রাইভার তালিকা</value>
+  </data>
+  <data name="SendQuote" xml:space="preserve">
+    <value>মূল্য প্রেরণ করুন</value>
+  </data>
+  <data name="EstimatedTime" xml:space="preserve">
+    <value>আনুমানিক সময়</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>মূল্য</value>
+  </data>
+  <data name="PleaseEnterPrice" xml:space="preserve">
+    <value>দাম লিখুন দয়া করে</value>
+  </data>
+  <data name="PleaseEnterTime" xml:space="preserve">
+    <value>অনুমানের সময় প্রবেশ করুন</value>
+  </data>
+  <data name="WaitingForConfirmation" xml:space="preserve">
+    <value>ড্রাইভারের কাছ থেকে উদ্ধৃতি (মূল্য এবং আনুমানিক সময়) এর জন্য অপেক্ষা করা হচ্ছে।</value>
+  </data>
+  <data name="AlreadySent" xml:space="preserve">
+    <value>ইতিমধ্যে পাঠানো</value>
+  </data>
+  <data name="end_ride" xml:space="preserve">
+    <value>শেষ যাত্রা</value>
+  </data>
+  <data name="start_ride" xml:space="preserve">
+    <value>যাত্রা শুরু করুন</value>
+  </data>
+  <data name="choose" xml:space="preserve">
+    <value>পছন্দ করা</value>
+  </data>
+  <data name="choose_civil_copy_expire_date" xml:space="preserve">
+    <value>সিভিল কপির মেয়াদ শেষ হওয়ার তারিখটি চয়ন করুন</value>
+  </data>
+  <data name="choose_vehicle_form_expire_date" xml:space="preserve">
+    <value>দয়া করে যানবাহনের ফর্মটির মেয়াদ শেষ হওয়ার তারিখটি চয়ন করুন</value>
+  </data>
+  <data name="choose_vehicle_registration_expire_date" xml:space="preserve">
+    <value>দয়া করে যানবাহনের নিবন্ধকরণের মেয়াদ শেষ হওয়ার তারিখটি চয়ন করুন</value>
+  </data>
+  <data name="OtpFailureResponse" xml:space="preserve">
+    <value>ওটিপি পাঠানোর সময় কিছু ত্রুটি রয়েছে, দয়া করে পরে আবার চেষ্টা করুন।</value>
+  </data>
+  <data name="OtpSuccessResponse" xml:space="preserve">
+    <value>ওটিপি সফলভাবে প্রেরণ করা হয়েছে</value>
+  </data>
+  <data name="CustomerCharge" xml:space="preserve">
+    <value>The minimum charge of request is 50 SAR.</value>
+  </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>আপনার ফোন নম্বরটি 0 দিয়ে শুরু করা আবশ্যক।</value>
+  </data>
+  <data name="PhoneNumberValid" xml:space="preserve">
+    <value>আপনার ফোন নম্বর অবশ্যই 10 সংখ্যার হতে হবে।</value>
+  </data>
+  <data name="DeleteChatConfirm" xml:space="preserve">
+    <value>আপনি কি নিশ্চিত আড্ডা মুছতে চান?</value>
+  </data>
+</root>

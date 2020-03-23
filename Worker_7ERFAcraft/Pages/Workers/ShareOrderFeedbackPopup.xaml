@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+                   xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository"
+                     xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+             x:Class="Worker_7ERFAcraft.Pages.ShareOrderFeedbackPopup">
+
+
+
+    <ScrollView>
+        <AbsoluteLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <StackLayout x:Name="FrameContainer" BackgroundColor="Transparent"  Padding="0">
+                <Frame    BackgroundColor="White"  CornerRadius="30">
+                    <StackLayout    BackgroundColor="White" x:Name="layoutMain" Orientation="Vertical" Spacing="10" Margin="20">
+
+                        <Label Style="{StaticResource HeaderLabelStyle}" FontSize="Large"  Text="{strings:Translate ShareFeedback}" HorizontalOptions="CenterAndExpand"
+                           Margin="10"/>
+                        
+
+                        <Editor Style="{StaticResource EntryStyle}"   Placeholder="Comment" Text="{Binding Comment}"
+                                Margin="0,20,0,0" MaxLength="250"/>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+                        
+
+
+
+                             
+                            <Button Command="{Binding submitBtnCommand}"  x:Name="submitBtn"
+                                         Text="{strings:Translate Share}" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.BodyFont}"
+                                TextColor="White" HorizontalOptions="CenterAndExpand"    
+                                   FontSize="Medium"   BackgroundColor="{StaticResource MainColor}"  
+                            Margin="0,20,0,0"  WidthRequest="100" >
+                             <Button.BorderRadius>
+   <OnPlatform x:TypeArguments="x:Int32">
+     <On Platform="Android, WinPhone">30</On>
+     <On Platform="iOS">20</On>
+    </OnPlatform>
+ </Button.BorderRadius>
+                        </Button>
+
+
+                        <Button Clicked="Closed_Tapped"  x:Name="closebtn"   Text="{strings:Translate Close}" WidthRequest="200" 
+                      Style="{StaticResource ButtonStyle}" BackgroundColor="Transparent" TextColor="{StaticResource RejectColor}" 
+                                FontSize="Medium" VerticalOptions="EndAndExpand"  Margin="0,0,0,0">
+                             <Button.BorderRadius>
+   <OnPlatform x:TypeArguments="x:Int32">
+     <On Platform="Android, WinPhone">30</On>
+     <On Platform="iOS">20</On>
+    </OnPlatform>
+ </Button.BorderRadius>
+                        </Button>
+                        
+
+
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ScrollView>
+
+</pages:PopupPage>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+                xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+                 xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="Worker_7ERFAcraft.Pages.WorkerProfilePage">
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  >
+
+                <image:CircleImage Source="{Binding Image}"  x:Name="imgProfile" VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="Center"                               WidthRequest="100" HeightRequest="100" 
+                                         Aspect="AspectFill" Margin="0,20,0,20">
+                    <image:CircleImage.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding imgProfileCommand}"></TapGestureRecognizer>
+                    </image:CircleImage.GestureRecognizers>
+                </image:CircleImage>
+                <Label Style="{StaticResource HeaderLabelStyle}"  Text="{Binding RegNo}" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+
+
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Style="{StaticResource LabelStyle}" TextColor="{StaticResource NewGrayColor}" Text="{strings:Translate Username}"  />
+                        <Entry Style="{StaticResource EntryStyle}"  Text="{Binding UserName}"/>
+                </StackLayout>
+            
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Style="{StaticResource LabelStyle}" TextColor="{StaticResource NewGrayColor}"  Text="{strings:Translate FullName}"/>
+                        <Entry Style="{StaticResource EntryStyle}"  Text="{Binding FullName}"/>
+                </StackLayout>
+            
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Style="{StaticResource LabelStyle}" TextColor="{StaticResource NewGrayColor}" Text="{strings:Translate PhoneNumber}"/>
+                    <Label Style="{StaticResource LabelStyle}"  Text="{Binding PhoneNumber}"/>
+                </StackLayout>
+           
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+                <!--Country-->
+
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Style="{StaticResource LabelStyle}" TextColor="{StaticResource NewGrayColor}"  Text="{strings:Translate Country}"/>
+                        <StackLayout HorizontalOptions="FillAndExpand"  Orientation="Horizontal"  >
+                            <Picker  x:Name="pkCountry" Style="{StaticResource PickerStyle}" ItemsSource="{Binding CountryList}" SelectedItem="{Binding SelectedCountryItem}" 
+                                                        Title="Select Country"/>
+                            <Image x:Name="imgCountry" Source="ic_drop_menu_icon.png" HeightRequest="25" WidthRequest="25">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="imgCountry_Tapped">
+
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                    </StackLayout>
+               
+            
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <!--Location-->
+
+
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Style="{StaticResource LabelStyle}" TextColor="{StaticResource NewGrayColor}"  Text="{strings:Translate Location}"/>
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Entry Style="{StaticResource EntryStyle}"  Text="{Binding Location}" HorizontalOptions="FillAndExpand"/>
+                        <Image Source="ic_map.png" HeightRequest="25" WidthRequest="25">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ShowMapCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                       
+                </StackLayout>
+                   
+                
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <ListView x:Name="lstViewPlaces" SeparatorVisibility="None" HasUnevenRows="False"  SelectedItem="{Binding LocSelectedItem}"
+                 HorizontalOptions="FillAndExpand" HeightRequest="{Binding GridLocHeight}" ItemsSource="{Binding LocationList}" Margin="20,0,20,0"
+                          VerticalOptions="Start">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsClippedToBounds="True" Padding="0">
+                                        <Label  Style="{StaticResource LabelStyle}" FontSize="15"                                                    Text="{Binding description}"  />
+                                    </StackLayout>
+
+
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!--Residency Number-->
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Style="{StaticResource LabelStyle}" TextColor="{StaticResource NewGrayColor}" Text="{strings:Translate ResidencyNumber}"/>
+                    <Entry Style="{StaticResource EntryStyle}"  Text="{Binding ResidencyNumber}"/>
+                </StackLayout>
+
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <!--Residency Picture-->
+
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Style="{StaticResource LabelStyle}" TextColor="{StaticResource NewGrayColor}"  Text="{strings:Translate ResidencyPicture}"/>
+                        <Image Source="{Binding ImageResidencyPicture}" HeightRequest="100" WidthRequest="100"  HorizontalOptions="StartAndExpand"
+                               Margin="0,0,0,0">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ImageResidencyPictureCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+               
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+                <flv:FlowListView x:Name="cViewCategories" SeparatorVisibility="None" HasUnevenRows="true"    HeightRequest="{Binding CatListHeight}" FlowColumnCount="3"
+                       FlowItemsSource="{Binding CategoryList}" Margin="20,30,20,0"  
+                                                                  FlowItemTappedCommand="{Binding btnSelectCommond}"   >
+                    <flv:FlowListView.FlowColumnTemplate>
+                        <DataTemplate>
+                            <Grid x:Name="Item" Padding="5" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                          Margin="0" Padding="0" HeightRequest="120" WidthRequest="120">
+
+                                    <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            Source="{Binding Image}" Aspect="AspectFit" Opacity="{Binding BGOpacity}"/>
+
+                                    <Frame HasShadow="{Binding HasShadow}" CornerRadius="5"  Padding="0"   
+                                     HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" 
+                        AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" BackgroundColor="Transparent">
+
+                                        <StackLayout  HorizontalOptions="FillAndExpand" Spacing="0" VerticalOptions="FillAndExpand">
+
+                                            <StackLayout  HorizontalOptions="FillAndExpand" Spacing="0" VerticalOptions="CenterAndExpand" Margin="10">
+                                                <ffimageloading:CachedImage Source="{Binding CategoryImage}" HeightRequest="50" WidthRequest="50" HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"/>
+                                                <Label Style="{StaticResource LabelStyle}" Text="{Binding CategoryName}" HorizontalOptions="CenterAndExpand"
+                               HorizontalTextAlignment="Center" FontSize="Default" Margin="0,10,0,0"  />
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                    </Frame>
+
+
+                                </AbsoluteLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </flv:FlowListView.FlowColumnTemplate>
+                </flv:FlowListView>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Margin="20,50,20,20">
+                    <Button Command="{Binding updatebtnCommand}"  x:Name="updatebtn"   Text="{strings:Translate Update}" HorizontalOptions="FillAndExpand"
+                      Style="{StaticResource ButtonStyle}" BackgroundColor="{StaticResource MainColor}" TextColor="White"  FontSize="Medium"  HeightRequest="70"> 
+                    </Button>
+                    <Button Command="{Binding changePasswordbtnCommand}"  x:Name="changePasswordbtn"   Text="{strings:Translate ChangePassword}"
+                        HorizontalOptions="FillAndExpand"   Style="{StaticResource ButtonStyle}" BackgroundColor="{StaticResource NewGrayColor}"
+                            TextColor="White"   FontSize="Medium"   HeightRequest="70"> 
+                    </Button>
+                </StackLayout>
+               
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

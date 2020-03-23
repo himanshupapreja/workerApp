@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Worker_7ERFAcraft.Pages.Driver.PlayVoiceNotePage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                     Spacing="10" BackgroundColor="White" Padding="10">
+
+            <ActivityIndicator x:Name="actLoading" IsRunning="True" IsVisible="True"
+                               Color="#06487D"></ActivityIndicator>
+            <WebView
+            x:Name="webView" 
+             HeightRequest="1000"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            WidthRequest="1000"   />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

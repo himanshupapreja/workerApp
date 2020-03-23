@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+            xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                   xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+             x:Class="Worker_7ERFAcraft.Pages.LoaderWithPer">
+    <ScrollView>
+        <AbsoluteLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <StackLayout x:Name="FrameContainer" BackgroundColor="Transparent"  Padding="0">
+                <StackLayout Spacing="10"  BackgroundColor="Transparent" x:Name="layoutMain" Orientation="Vertical">
+
+                     
+                    <progressBar:SfLinearProgressBar  x:Name="linearProgressBar" TrackColor="White" 
+                                                 ProgressColor="{StaticResource MainColor}"  IsVisible="False" />
+                     <progressBar:SfCircularProgressBar  x:Name="circularProgressBar" TrackColor="White" 
+                                                 ProgressColor="{StaticResource MainColor}"    /> 
+                    <!--<progressBar:SfCircularProgressBar x:Name="circularProgressBar" TrackColor="White" 
+                                                 ProgressColor="{StaticResource MainColor}" HorizontalOptions="Center" >
+
+                        <progressBar:SfCircularProgressBar.Content>
+
+                            <Grid>
+
+                                <Grid.RowDefinitions>
+
+                                    <RowDefinition Height="3*"/>
+
+                                    <RowDefinition Height="*"/>
+
+                                </Grid.RowDefinitions>
+
+                                <Label x:Name="CustomContentProgressBarLabel" Grid.Row="0"
+
+                TextColor="{StaticResource MainColor}" Text="{Binding Progress,StringFormat='{0}%'}" BindingContext="{x:Reference circularProgressBar}"      HorizontalTextAlignment="Center" VerticalTextAlignment="End">
+
+                                </Label>
+
+                            </Grid>
+
+                        </progressBar:SfCircularProgressBar.Content>
+
+                    </progressBar:SfCircularProgressBar>-->
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ScrollView>
+</pages:PopupPage>

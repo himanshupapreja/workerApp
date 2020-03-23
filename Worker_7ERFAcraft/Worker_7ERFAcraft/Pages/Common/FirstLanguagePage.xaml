@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Worker_7ERFAcraft.Pages.FirstLanguagePage"
+               xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository"
+               xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+             BackgroundImage="worker_customer.png">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20">
+             
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="0,0,0,0">
+                <Image Source="logo_worker.png" HeightRequest="150" HorizontalOptions="FillAndExpand" Margin="40,0,40,0"/>
+
+                <Frame Padding="10,5,10,5" BackgroundColor="White" HasShadow="False" CornerRadius="15" HorizontalOptions="FillAndExpand"  Margin="0,40,0,0">
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                        <Picker Style="{StaticResource PickerStyle}"  x:Name="pickerLangauge" SelectedIndexChanged="PickerLangauge_SelectedIndexChanged"/>
+                        <Image   Source="ic_drop_menu_icon.png" HeightRequest="25" WidthRequest="25"/>
+                    </StackLayout>
+                </Frame>
+
+                
+               
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

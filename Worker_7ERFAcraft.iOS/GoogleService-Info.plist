@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>306830392881-7njip5cl9k9jbbo9am68iom54m4kum8p.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.306830392881-7njip5cl9k9jbbo9am68iom54m4kum8p</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAXx-BiOZf1FjUMMyqxyN40Du2n3HJ1LRU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>306830392881</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.orem.mawjood</string>
+	<key>PROJECT_ID</key>
+	<string>alpine-zodiac-232721</string>
+	<key>STORAGE_BUCKET</key>
+	<string>alpine-zodiac-232721.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:306830392881:ios:c0a0aabd7faee8b2</string>
+	<key>DATABASE_URL</key>
+	<string>https://alpine-zodiac-232721.firebaseio.com</string>
+</dict>
+</plist>

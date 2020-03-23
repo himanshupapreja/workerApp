@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository"
+                  xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+                 xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="Worker_7ERFAcraft.Pages.DriverProfilePage">
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  >
+
+                <image:CircleImage Source="{Binding Image}"  x:Name="imgProfile" VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="Center"                               WidthRequest="100" HeightRequest="100" 
+                                         Aspect="AspectFill" Margin="0,20,0,20">
+                    <image:CircleImage.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding imgProfileCommand}"></TapGestureRecognizer>
+                    </image:CircleImage.GestureRecognizers>
+                </image:CircleImage>
+                <Label Style="{StaticResource HeaderLabelStyle}"  Text="{Binding RegNo}" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+
+
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Style="{StaticResource LabelStyle}" TextColor="{StaticResource NewGrayColor}" Text="{strings:Translate Username}"  />
+                        <Entry Style="{StaticResource EntryStyle}"  Text="{Binding UserName}"/>
+                </StackLayout>
+            
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Style="{StaticResource LabelStyle}" TextColor="{StaticResource NewGrayColor}"  Text="{strings:Translate FullName}"/>
+                        <Entry Style="{StaticResource EntryStyle}"  Text="{Binding FullName}"/>
+                </StackLayout>
+            
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Style="{StaticResource LabelStyle}" TextColor="{StaticResource NewGrayColor}" Text="{strings:Translate PhoneNumber}"/>
+                    <Label Style="{StaticResource LabelStyle}"  Text="{Binding PhoneNumber}"/>
+                </StackLayout>
+           
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+                <!--Country-->
+
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Style="{StaticResource LabelStyle}" TextColor="{StaticResource NewGrayColor}"  Text="{strings:Translate Country}"/>
+                        <StackLayout HorizontalOptions="FillAndExpand"  Orientation="Horizontal"  >
+                            <Picker  x:Name="pkCountry" Style="{StaticResource PickerStyle}" ItemsSource="{Binding CountryList}" SelectedItem="{Binding SelectedCountryItem}" 
+                                                        Title="Select Country"/>
+                            <Image x:Name="imgCountry" Source="ic_drop_menu_icon.png" HeightRequest="25" WidthRequest="25">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="imgCountry_Tapped">
+
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                    </StackLayout>
+               
+            
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <!--Location-->
+
+
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Style="{StaticResource LabelStyle}" TextColor="{StaticResource NewGrayColor}"  Text="{strings:Translate Location}"/>
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Entry Style="{StaticResource EntryStyle}"  Text="{Binding Location}" HorizontalOptions="FillAndExpand"/>
+                        <Image Source="ic_map.png" HeightRequest="25" WidthRequest="25">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ShowMapCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                       
+                </StackLayout>
+                   
+            
+            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <ListView x:Name="lstViewPlaces" SeparatorVisibility="None" HasUnevenRows="False"  SelectedItem="{Binding LocSelectedItem}"
+                 HorizontalOptions="FillAndExpand" HeightRequest="{Binding GridLocHeight}" ItemsSource="{Binding LocationList}" Margin="20,0,20,0"
+                          VerticalOptions="Start">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsClippedToBounds="True" Padding="0">
+                                        <Label  Style="{StaticResource LabelStyle}" FontSize="15"                                                    Text="{Binding description}"  />
+                                    </StackLayout>
+
+
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+                <!--Copy of Civil Register (copy of residencefor non-Saudis and passport)-->
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Text="{strings:Translate CopyofCivilRegister}" StyleId="{x:Static adc:App_FontFamilies.BodyFont}" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" FontSize="Small" HorizontalOptions="StartAndExpand" VerticalOptions="Center"></Label>
+                    <StackLayout HorizontalOptions="FillAndExpand"  Orientation="Horizontal" Spacing="0">
+                        <Image HorizontalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" Source="{Binding CivilCopyPicture}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding civilCopyPictureCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                </StackLayout>
+
+                <Frame Padding="3" Margin="20,10,20,10" CornerRadius="15" HasShadow="False"
+                                   BorderColor="#DCDCDC" BackgroundColor="Transparent"
+                       HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+
+                        <Button TextColor="White" BackgroundColor="{StaticResource MainColor}"
+                                Text="{strings:Translate choose}" BorderRadius="15" HeightRequest="40"
+                                WidthRequest="90" Command="{Binding civilCopyPictureCommand}"
+                                HorizontalOptions="EndAndExpand" VerticalOptions="Start"/>
+
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding civilCopyPictureCommand}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <BoxView HeightRequest="0.5" BackgroundColor="Gray" HorizontalOptions="FillAndExpand"></BoxView>
+
+                <Label StyleId="{x:Static adc:App_FontFamilies.BodyFont}" 
+                           FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" FontSize="Small" 
+                   TextColor="Gray" Text="Civil Copy Expiration Date" Margin="20,0,20,0"
+                  VerticalOptions="Start" HorizontalOptions="StartAndExpand"/>
+
+                <!--<Frame Padding="10" Margin="0,10,0,10" CornerRadius="15" HasShadow="False"
+                                   BorderColor="#DCDCDC" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="Start">-->
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="20,10,20,0">
+                    <Label HorizontalOptions="FillAndExpand"
+                            Text="{Binding CivilCopyRegistrationExpire}" FontSize="18"/>
+
+                    <DatePicker x:Name="civilCopyPicker" IsVisible="False" MinimumDate="{Binding PickerMinimumDate}"
+                                Date="{Binding Civil_Copy_Date_Selected}"/>
+
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Civil_Copy_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <!--Copy of Vehicle Form-->
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Text="{strings:Translate CopyofVehicleForm}" StyleId="{x:Static adc:App_FontFamilies.BodyFont}" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" FontSize="Small" HorizontalOptions="StartAndExpand" VerticalOptions="Center"></Label>
+                    <StackLayout HorizontalOptions="FillAndExpand"  Orientation="Horizontal" Spacing="0">
+                        <Image HorizontalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" Source="{Binding VehicleCopyPicture}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding vehicleCopyPictureCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                </StackLayout>
+
+                <Frame Padding="3" Margin="20,10,20,10" CornerRadius="15" HasShadow="False"
+                                   BorderColor="#DCDCDC" BackgroundColor="Transparent"
+                       HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+
+                        <Button TextColor="White" BackgroundColor="{StaticResource MainColor}"
+                                Text="{strings:Translate choose}" BorderRadius="15" HeightRequest="40"
+                                WidthRequest="90" Command="{Binding vehicleCopyPictureCommand}"
+                                HorizontalOptions="EndAndExpand" VerticalOptions="Start"/>
+
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding vehicleCopyPictureCommand}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <BoxView HeightRequest="0.5" BackgroundColor="Gray" HorizontalOptions="FillAndExpand"></BoxView>
+
+                <Label StyleId="{x:Static adc:App_FontFamilies.BodyFont}" 
+                           FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" FontSize="Small" 
+                   TextColor="Gray" Text="Vehicle Form Expiration Date" Margin="20,0,20,0"
+                  VerticalOptions="Start" HorizontalOptions="StartAndExpand"/>
+
+                <!--<Frame Padding="10" Margin="0,10,0,10" CornerRadius="15" HasShadow="False"
+                                   BorderColor="#DCDCDC" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="Start">-->
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="20,10,20,0">
+                    <Label HorizontalOptions="FillAndExpand"
+                            Text="{Binding VehicleFormRegistrationExpire}" FontSize="18"/>
+
+                    <DatePicker x:Name="vehicleFormPicker" IsVisible="False"  MinimumDate="{Binding PickerMinimumDate}"
+                                Date="{Binding Vehicle_Form_Date_Selected}"/>
+
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Vehicle_Form_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <!--Vehicle Image-->
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Label Text="{strings:Translate VehicleImage}" StyleId="{x:Static adc:App_FontFamilies.BodyFont}" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" FontSize="Small" HorizontalOptions="StartAndExpand" VerticalOptions="Center"></Label>
+                    <StackLayout HorizontalOptions="FillAndExpand"  Orientation="Horizontal" Spacing="0">
+                        <Image HorizontalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" Source="{Binding VehiclePicture}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding vehiclePictureCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                </StackLayout>
+
+                <Frame Padding="3" Margin="20,10,20,10" CornerRadius="15" HasShadow="False"
+                                   BorderColor="#DCDCDC" BackgroundColor="Transparent"
+                       HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+
+                        <Button TextColor="White" BackgroundColor="{StaticResource MainColor}"
+                                Text="{strings:Translate choose}" BorderRadius="15" HeightRequest="40"
+                                WidthRequest="90" Command="{Binding vehiclePictureCommand}"
+                                HorizontalOptions="EndAndExpand" VerticalOptions="Start"/>
+
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding vehiclePictureCommand}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <BoxView HeightRequest="0.5" BackgroundColor="Gray" HorizontalOptions="FillAndExpand"></BoxView>
+
+                <Label StyleId="{x:Static adc:App_FontFamilies.BodyFont}" 
+                           FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" FontSize="Small" 
+                   TextColor="Gray" Text="Vehicle Expiration Date" Margin="20,0,20,0"
+                  VerticalOptions="Start" HorizontalOptions="StartAndExpand"/>
+
+                <!--<Frame Padding="10" Margin="0,10,0,10" CornerRadius="15" HasShadow="False"
+                                   BorderColor="#DCDCDC" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="Start">-->
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="20,10,20,0">
+                    <Label HorizontalOptions="FillAndExpand"
+                            Text="{Binding VehicleRegistrationExpire}" FontSize="18"/>
+
+                    <DatePicker x:Name="vehiclePicker" IsVisible="False"  MinimumDate="{Binding PickerMinimumDate}"
+                                Date="{Binding Vehicle_Date_Selected}"/>
+
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Vehicle_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+
+
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Margin="20,50,20,20">
+                    <Button Command="{Binding updatebtnCommand}"  x:Name="updatebtn"   Text="{strings:Translate Update}" HorizontalOptions="FillAndExpand"
+                      Style="{StaticResource ButtonStyle}" BackgroundColor="{StaticResource MainColor}" TextColor="White"  FontSize="Medium"  HeightRequest="70"> 
+                    </Button>
+                    <Button Command="{Binding changePasswordbtnCommand}"  x:Name="changePasswordbtn"   Text="{strings:Translate ChangePassword}"
+                        HorizontalOptions="FillAndExpand"   Style="{StaticResource ButtonStyle}" BackgroundColor="{StaticResource NewGrayColor}"
+                            TextColor="White"   FontSize="Medium"   HeightRequest="70"> 
+                    </Button>
+                </StackLayout>
+               
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

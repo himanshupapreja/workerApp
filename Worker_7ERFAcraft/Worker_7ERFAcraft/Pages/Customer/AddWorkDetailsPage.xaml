@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+               xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+              xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" 
+                  xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             x:Class="Worker_7ERFAcraft.Pages.AddWorkDetailsPage">
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20">
+
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <image:CircleImage Source="{Binding UserImage}" VerticalOptions="CenterAndExpand"
+                                                           WidthRequest="100" HeightRequest="100" 
+                                         Aspect="AspectFill" >
+                        </image:CircleImage>
+                        <StackLayout HorizontalOptions="FillAndExpand" Margin="15,0,0,0">
+                            <Label Style="{StaticResource HeaderLabelStyle}" Text="{Binding RegNo}"  
+                               FontSize="Large"/>
+                            <Label Style="{StaticResource HeaderLabelStyle}" Text="{Binding Name}"  
+                               FontSize="Medium" TextColor="{StaticResource NewGrayColor}"/>
+                            <!--<rating:SfRating x:Name="rating"  ItemCount="5"   ItemSize="20" Value="{Binding Rating}" ReadOnly="True" ItemSpacing="0">
+                                <rating:SfRating.RatingSettings>
+                                    <rating:SfRatingSettings RatedFill="#ffc600" UnRatedFill="#bfbfbf" RatedStrokeWidth="0" UnRatedStrokeWidth="0" />
+                                </rating:SfRating.RatingSettings>
+                            </rating:SfRating>-->
+                          <StackLayout   Spacing="5" Orientation="Horizontal">
+                            
+                          
+                          <Image   Source="{Binding ImgRate1}" HeightRequest="20"   />
+
+                          <Image   Source="{Binding ImgRate2}" HeightRequest="20"    />
+
+                          <Image   Source="{Binding ImgRate3}" HeightRequest="20"     />
+
+                          <Image   Source="{Binding ImgRate4}" HeightRequest="20"   />
+
+                          <Image   Source="{Binding ImgRate5}" HeightRequest="20"    />
+                          </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+
+
+                    <Label Style="{StaticResource LabelStyle}" Text="{strings:Translate Service}" TextColor="{StaticResource NewGrayColor}"/>
+                    <StackLayout HorizontalOptions="FillAndExpand"  Orientation="Horizontal" Spacing="0">
+                        <Picker  x:Name="pkServices" Style="{StaticResource PickerStyle}" ItemsSource="{Binding ServicesList}" 
+                             SelectedItem="{Binding SelectedServiceItem}"   />
+                        <Image x:Name="imgService" Source="ic_drop_menu_icon.png" HeightRequest="25" WidthRequest="25">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+
+                                </TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+                    <Label Style="{StaticResource LabelStyle}" Text="{strings:Translate WorkFromDate}" TextColor="{StaticResource NewGrayColor}"/>
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Image Source="ic_calendar.png" HeightRequest="20" WidthRequest="20"/>
+                        <DatePicker  Style="{StaticResource DatePickerStyle}" Date="{Binding WorkDateFrom}" Format=" dd-MMM-yyyy" />
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+                    <Label Style="{StaticResource LabelStyle}" Text="{strings:Translate WorkToDate}" TextColor="{StaticResource NewGrayColor}"/>
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Image Source="ic_calendar.png" HeightRequest="20" WidthRequest="20"/>
+                        <DatePicker  Style="{StaticResource DatePickerStyle}" Date="{Binding WorkDateTo}"  Format=" dd-MMM-yyyy"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                    <Label Style="{StaticResource LabelStyle}" Text="{strings:Translate WorkHours}" TextColor="{StaticResource NewGrayColor}"/>
+
+
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Image Source="ic_time.png" HeightRequest="20" WidthRequest="20"/>
+                                <Picker Style="{StaticResource PickerStyle}" ItemsSource="{Binding FromTimeSlots}"
+                        SelectedItem="{Binding SelectedFromTimeSlot}" Title="{strings:Translate TimeFrom}"/>
+                            </StackLayout>
+                            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Image Source="ic_time.png" HeightRequest="20" WidthRequest="20"/>
+                                <Picker Style="{StaticResource PickerStyle}" ItemsSource="{Binding ToTimeSlots}"
+                        SelectedItem="{Binding SelectedToTimeSlot}" Title="{strings:Translate TimeTo}"/>
+                            </StackLayout>
+                            <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Label Style="{StaticResource LabelStyle}" Text="{strings:Translate WorkNotes}" TextColor="{StaticResource NewGrayColor}"/>
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Image Source="ic_details.png" HeightRequest="20" WidthRequest="20"/>
+                        <Entry Style="{StaticResource EntryStyle}"  Text="{Binding WorkNotes}"  Placeholder="{strings:Translate WorkNotes}"  />
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+
+                    <Label x:Name="lblPhotosVideos" Style="{StaticResource LabelStyle}" TextColor="{StaticResource NewGrayColor}" />
+
+                    <flv:FlowListView x:Name="cViewImage" SeparatorVisibility="None" HasUnevenRows="True"   
+        FlowColumnCount="2"  Margin="5"  FlowItemsSource="{Binding ProductList}" HeightRequest="{Binding GridHeight}">
+                        <flv:FlowListView.FlowColumnTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="5">
+                                    <Frame BackgroundColor="White" Padding="3,3,3,3" HasShadow="True" CornerRadius="7" 
+                                       IsVisible="{Binding IsvisibleExistingImage}">
+                                        <Grid   x:Name="Item1"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression
+                     Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression
+                    Type=RelativeToParent,Property=Height,Factor=1,Constant=0}" 
+                        Padding="0"
+                        Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Center">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*">
+                                                </ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="100">
+                                                </RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image   Aspect="AspectFill"
+                          Source="{Binding imageData}"    HorizontalOptions="FillAndExpand" HeightRequest="100"
+                                                             WidthRequest="100" IsVisible="{Binding IsImage}"/>
+                                            <Label    Text="{Binding text}"   HorizontalOptions="FillAndExpand"   IsVisible="{Binding IsVideo}"/>
+
+
+                                            <Image  Source="delete.png" Margin="0" WidthRequest="40" Grid.RowSpan="2" Grid.Column="0" HeightRequest="40" 
+                         HorizontalOptions="End" VerticalOptions="Start">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer 
+                                                    BindingContext="{Binding Source={x:Reference cViewImage}, Path=BindingContext}"
+                        Command="{Binding btnDeleteImageCommand}"   CommandParameter="{Binding Source={x:Reference Item1}, Path=BindingContext}">
+                                                    </TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                        </Grid>
+                                    </Frame>
+                                    <Frame BackgroundColor="#E4E4E4" Padding="3" HasShadow="True" CornerRadius="7" IsVisible="{Binding IsvisibleNewImage}">
+                                        <Grid   x:Name="Item2">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="100" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Frame HorizontalOptions="FillAndExpand" Padding="0" CornerRadius="7" BackgroundColor="Transparent">
+                                                <Image    Aspect="AspectFit"
+                          Source="ic_add_image.png"   HorizontalOptions="CenterAndExpand" 
+                                        VerticalOptions="CenterAndExpand" />
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer 
+                                                    BindingContext="{Binding Source={x:Reference cViewImage}, Path=BindingContext}"
+                        Command="{Binding btnAddImageCommand}"   CommandParameter="{Binding Source={x:Reference Item2}, Path=BindingContext}"
+                                                    ></TapGestureRecognizer>
+                                                </Frame.GestureRecognizers>
+                                            </Frame>
+
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </flv:FlowListView.FlowColumnTemplate>
+                    </flv:FlowListView>
+
+                    <Label Style="{StaticResource LabelStyle}" Text="{strings:Translate CustomerCharge}" TextColor="{StaticResource RejectColor}" />
+                </StackLayout>
+                <Button Command="{Binding submitBtnCommand}"  x:Name="submitbtn"   Text="{strings:Translate Submit}" HorizontalOptions="FillAndExpand"
+                      Style="{StaticResource ButtonStyle}" HeightRequest="70"  FontSize="Large" VerticalOptions="EndAndExpand" Margin="0,0,0,0"  />
+            </StackLayout>
+
+                
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

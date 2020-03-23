@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Worker_7ERFAcraft.Pages.AppVideoPage"
+                  xmlns:forms="clr-namespace:InTheHand.Forms;assembly=InTheHand.Forms">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid Margin="0,0,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*">
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*">
+                    </RowDefinition>
+                </Grid.RowDefinitions>
+
+
+
+                <forms:MediaElement Grid.Row="0" Grid.Column="0" Source="{Binding MediaNameUrl}"   HorizontalOptions="FillAndExpand"
+                                                                    BackgroundColor="Transparent" VerticalOptions="FillAndExpand"
+                        x:Name="video" IsLooping="True"  AreTransportControlsEnabled="true"   />
+
+
+
+                
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

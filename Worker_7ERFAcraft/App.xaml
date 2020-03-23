@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository"
+             x:Class="Worker_7ERFAcraft.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            
+            <OnPlatform x:Key="DefaultFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="{x:Static adc:App_FontFamilies.BodyFont}" />
+                <On Platform="Android,UWP" Value="{x:Static adc:App_FontFamilies.BodyFont}" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="HeaderFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="{x:Static adc:App_FontFamilies.HeadingFont}" />
+                <On Platform="Android,UWP" Value="{x:Static adc:App_FontFamilies.HeadingFont}" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="MediumFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="{x:Static adc:App_FontFamilies.MediumFont}" />
+                <On Platform="Android,UWP" Value="{x:Static adc:App_FontFamilies.MediumFont}" />
+            </OnPlatform>
+            
+            <OnPlatform x:Key="MainLabelFontSize1" x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="13" />
+                <On Platform="Android,UWP" Value="16" />
+            </OnPlatform>
+            <OnPlatform x:Key="MainLabelFontSize2" x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="16" />
+                <On Platform="Android,UWP" Value="18" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="MainLabelFontSize3" x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="20" />
+                <On Platform="Android,UWP" Value="20" />
+            </OnPlatform>
+            <Color x:Key="MainColor">#fb9237</Color>
+            <Color x:Key="WhiteColor">#FFFFFF</Color>
+            <Color x:Key="Black1Color">#000000</Color>
+            <Color x:Key="Black2Color">#444444</Color>
+            <Color x:Key="GrayColor">#d2d2d2</Color>
+            <Color x:Key="RejectColor">#FF4141</Color>
+            <Color x:Key="BGColor">#F2F5FC</Color>
+            <Color x:Key="NewGrayColor">#b5b5b5</Color>
+
+
+            <Style x:Key="DatePickerStyle" TargetType="DatePicker">
+                <Setter Property="TextColor" Value="{StaticResource Black2Color}" />
+                <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource MainLabelFontSize1}"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>  
+            </Style>
+            
+            <Style x:Key="SearchBarStyle" TargetType="SearchBar">
+                <Setter Property="TextColor" Value="{StaticResource Black2Color}" />
+                <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource MainLabelFontSize1}"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="PlaceholderColor" Value="{StaticResource GrayColor}"/>
+            </Style>
+
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="{StaticResource Black2Color}" />
+                <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource MainLabelFontSize1}"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="PlaceholderColor" Value="{StaticResource GrayColor}"/>
+            </Style>
+            <Style x:Key="PickerStyle" TargetType="Picker">
+                <Setter Property="TextColor" Value="{StaticResource Black2Color}" />
+                <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource MainLabelFontSize1}"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            
+            <Style x:Key="EditorStyle" TargetType="Editor">
+                <Setter Property="TextColor" Value="{StaticResource Black2Color}" />
+                <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource MainLabelFontSize1}"/>
+                <Setter Property="HeightRequest" Value="100"/>
+            </Style>
+            
+            <Style x:Key="HeaderLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Black1Color}" />
+                <Setter Property="FontFamily" Value="{StaticResource HeaderFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource MainLabelFontSize2}"/> 
+            </Style>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Black2Color}" />
+                <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource MainLabelFontSize1}"/> 
+            </Style>
+
+            <Style x:Key="HelpLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Black1Color}" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource MainLabelFontSize3}"/> 
+            </Style>
+            
+            <Style x:Key="HorizontalBoxViewStyle" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="{StaticResource GrayColor}" />
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/> 
+            </Style>
+
+            <Style x:Key="VerticalBoxViewStyle" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="{StaticResource GrayColor}" />
+                <Setter Property="WidthRequest" Value="1" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="ProfileImageStyle" TargetType="Image">
+                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="WidthRequest" Value="30" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="Margin" Value="0,0,20,0"/>
+            </Style>
+
+            <Style x:Key="HelpRightArrowImageStyle" TargetType="Image">
+                <Setter Property="HeightRequest" Value="15" />
+                <Setter Property="WidthRequest" Value="15" />  
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+                <Setter Property="Source" Value="ic_next_arrow.png"/>
+            </Style>
+            <Style x:Key="HelpLeftImageStyle" TargetType="Image">
+                <Setter Property="HeightRequest" Value="25" />
+                <Setter Property="WidthRequest" Value="25" />
+                <Setter Property="Margin" Value="0,0,10,0"/> 
+            </Style>
+
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource MainColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource HeaderFontFamily}" />
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

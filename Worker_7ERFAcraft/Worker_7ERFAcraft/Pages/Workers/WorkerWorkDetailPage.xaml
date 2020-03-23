@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+             xmlns:forms="clr-namespace:InTheHand.Forms;assembly=InTheHand.Forms"
+               xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+                 xmlns:custom="clr-namespace:Worker_7ERFAcraft.CustomControls"  
+               xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="Worker_7ERFAcraft.Pages.WorkerWorkDetailPage">
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BGColor}">
+                <custom:CustomMap x:Name="map"   HorizontalOptions="FillAndExpand" IsShowingUser="True" 
+                              HeightRequest="200" IsVisible="{Binding IsNotPending}">
+
+                </custom:CustomMap>
+                <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="0,0,0,10">
+                    <image:CircleImage Source="{Binding CustomerImage}"  x:Name="imgProfile" HorizontalOptions="CenterAndExpand"
+                                                           WidthRequest="100" HeightRequest="100" 
+                                         Aspect="AspectFill" Margin="0,20,0,10">
+                    </image:CircleImage>
+                    <Label Style="{StaticResource HeaderLabelStyle}" Text="{Binding RegNo}"
+                       HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
+                    <Label Style="{StaticResource HeaderLabelStyle}" Text="{Binding CustomerName}"
+                       HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" IsVisible="{Binding IsNotPending}">
+                        <Image Source="worker_location.png" HeightRequest="25"/>
+                        <Label Style="{StaticResource LabelStyle}" Text="{Binding Location}"  
+                               VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Image Source="call_icon.png" HeightRequest="40" Margin="0,0,0,10" IsVisible="{Binding IsNotPending}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding imgCallCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <Image Source="driver_list.png" HeightRequest="40" Margin="0,0,0,10" IsVisible="{Binding IsDriverList}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding showDriversLists}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0" 
+                                  IsVisible="{Binding IsRatingShown}" Spacing="5">
+                        
+                        <!--<rating:SfRating x:Name="rating"  ItemCount="1"   ItemSize="20" Value="1" ReadOnly="True"
+                                 HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                            <rating:SfRating.RatingSettings>
+                                <rating:SfRatingSettings RatedFill="#ffc600" UnRatedFill="#bfbfbf" RatedStrokeWidth="0" UnRatedStrokeWidth="0"
+                                                                />
+                            </rating:SfRating.RatingSettings>
+                            <rating:SfRating.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RatingCommand}">
+                                </TapGestureRecognizer>
+                            </rating:SfRating.GestureRecognizers>
+                        </rating:SfRating>-->
+                      <Image   Source="{Binding ImgRate1}" HeightRequest="20" >
+                        <Image.GestureRecognizers>
+                          <TapGestureRecognizer Command="{Binding RatingCommand}">
+                          </TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                      </Image>
+
+                      <Image   Source="{Binding ImgRate2}" HeightRequest="20"    >
+                        <Image.GestureRecognizers>
+                          <TapGestureRecognizer Command="{Binding RatingCommand}">
+                          </TapGestureRecognizer>
+                        </Image.GestureRecognizers> 
+                      </Image>
+                      <Image   Source="{Binding ImgRate3}" HeightRequest="20" >
+                        <Image.GestureRecognizers>
+                          <TapGestureRecognizer Command="{Binding RatingCommand}">
+                          </TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                      </Image>
+                      <Image   Source="{Binding ImgRate4}" HeightRequest="20"   >
+                        <Image.GestureRecognizers>
+                          <TapGestureRecognizer Command="{Binding RatingCommand}">
+                          </TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                      </Image>
+
+                      <Image   Source="{Binding ImgRate5}" HeightRequest="20"    >
+                        <Image.GestureRecognizers>
+                          <TapGestureRecognizer Command="{Binding RatingCommand}">
+                          </TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                      </Image>
+                      
+                        <Label Text="{Binding Rating}" Style="{StaticResource LabelStyle}" VerticalOptions="CenterAndExpand" />
+                        <Image Source="ic_share_black.png" HeightRequest="20"    >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding imgSharingCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        
+                        <Label Text="{Binding TotalReviews}" Style="{StaticResource LabelStyle}" VerticalOptions="CenterAndExpand" IsVisible="False"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding imgSharingCommand}"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </StackLayout>
+
+              
+                <!--Work Details-->
+                <Frame HorizontalOptions="FillAndExpand" CornerRadius="15" Margin="10,20,10,20" Padding="0">
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="10">
+                            <Image Source="calendar.png" HeightRequest="40"/>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="20,0,0,0">
+                                <Label Style="{StaticResource HeaderLabelStyle}" Text="{strings:Translate WorkDate}" />
+                                <Label Style="{StaticResource LabelStyle}" Text="{Binding WorkDate}" />
+                            </StackLayout>
+                        </StackLayout>
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="10">
+                            <Image Source="clock.png" HeightRequest="40"/>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="20,0,0,0">
+                                <Label Style="{StaticResource HeaderLabelStyle}" Text="{strings:Translate WorkHours}" />
+                                <Label Style="{StaticResource LabelStyle}" Text="{Binding WorkHours}" />
+                            </StackLayout>
+                        </StackLayout>
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="10">
+                            <Image Source="work_details.png" HeightRequest="40"/>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="20,0,0,0">
+                                <Label Style="{StaticResource HeaderLabelStyle}" Text="{strings:Translate WorkNotes}" />
+                                <Label Style="{StaticResource LabelStyle}" Text="{Binding WorkNotes}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!--Photos &Videos-->
+                <Frame HorizontalOptions="FillAndExpand" IsVisible="{Binding PhotoVisible}" CornerRadius="15"  Margin="10,20,10,20">
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                        <Label x:Name="lblPhotosVideos" Style="{StaticResource HeaderLabelStyle}" Margin="0,0,0,0"  />
+                        <ListView    x:Name="lstViewWorker" SeparatorVisibility="None" HasUnevenRows="true" 
+                       ItemsSource="{Binding MediaList}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  
+                                     IsPullToRefreshEnabled="False" HeightRequest="{Binding LstViewHeight}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell >
+                                        <ViewCell.View>
+
+                                            <StackLayout x:Name="Item" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="10">
+                                                <Frame HorizontalOptions="FillAndExpand" CornerRadius="15" BorderColor="{StaticResource GrayColor}"
+                                                   IsVisible="{Binding IsImage}" Padding="2">
+                                                    <ffimageloading:CachedImage Source="{Binding MediaName}" HeightRequest="120"  HorizontalOptions="FillAndExpand" 
+                                                                                Aspect="AspectFill">
+                                                        <ffimageloading:CachedImage.GestureRecognizers>
+                                                            <TapGestureRecognizer BindingContext="{Binding Source={x:Reference lstViewWorker}, Path=BindingContext}" 
+                                                                                  Command="{Binding ViewImageCommand}"
+                                                                                  CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" />
+                                                        </ffimageloading:CachedImage.GestureRecognizers>
+                                                    </ffimageloading:CachedImage>
+                                                </Frame>
+                                                <Frame HorizontalOptions="FillAndExpand" CornerRadius="15" BorderColor="{StaticResource GrayColor}"
+                                                    IsVisible="{Binding IsVideo}" Padding="2">
+                                                    <forms:MediaElement Source="{Binding MediaNameUrl}" HeightRequest="120" HorizontalOptions="FillAndExpand"
+                                                                    BackgroundColor="Transparent" VerticalOptions="Center"
+                        x:Name="Media" IsLooping="True"  AreTransportControlsEnabled="true"  />
+                                                </Frame>
+                                            </StackLayout>
+
+
+                                        </ViewCell.View>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        
+                        
+
+
+                    </StackLayout>
+                </Frame>
+
+  
+                <Button Command="{Binding completeOrderCommand}"  x:Name="completebtn"   Text="{strings:Translate Complete}"  
+                      Style="{StaticResource ButtonStyle}"    FontSize="Medium"  HorizontalOptions="CenterAndExpand" 
+                        WidthRequest="200" Margin="0,20,0,20" IsVisible="{Binding IsVisibleComplete}">
+                    <Button.BorderRadius>
+                        <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="20"
+                                Android ="30"  />
+                    </Button.BorderRadius>
+                </Button>
+
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="10,20,10,20" Padding="10" 
+                             IsVisible="{Binding IsAcceptReject}">
+                    <Button Command="{Binding rejectOrderCommand}"  x:Name="rejectbtn"   Text="{strings:Translate Reject}"  BackgroundColor="{StaticResource RejectColor}"
+                                Style="{StaticResource ButtonStyle}"   FontSize="Medium"    HorizontalOptions="FillAndExpand">
+                        <Button.BorderRadius>
+                            <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="20"
+                                Android ="30"  />
+                        </Button.BorderRadius>
+                    </Button>
+
+                    <Button Command="{Binding acceptOrderCommand}"  x:Name="acceptbtn" Style="{StaticResource ButtonStyle}"  Text="{strings:Translate Accept}"
+                                HorizontalOptions="FillAndExpand"    FontSize="Medium"  >
+                        <Button.BorderRadius>
+                            <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="20"
+                                Android ="30"  />
+                        </Button.BorderRadius>
+
+                    </Button>
+
+                </StackLayout>
+            </StackLayout>
+
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

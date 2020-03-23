@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository"
+             xmlns:custom="clr-namespace:Worker_7ERFAcraft.CustomControls" 
+                    xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+             x:Class="Worker_7ERFAcraft.Pages.NoInternetPopup">
+    
+    <StackLayout BackgroundColor="Transparent" Padding="25">
+        <StackLayout BackgroundColor="White" HorizontalOptions="CenterAndExpand" Spacing="10" VerticalOptions="CenterAndExpand" Padding="15" Margin="0">
+            <Label Text="{strings:Translate Connectionfailed}" FontSize="25" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand"
+                   TextColor="#444444"
+                  FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+                   StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" FontAttributes="Bold"/>
+
+            <custom:LineLabel Text="{strings:Translate InternetMsg}"
+                                FontSize="Medium" LineSpacing="1.5" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" TextColor="Gray"
+FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" StyleId="{x:Static adc:App_FontFamilies.BodyFont}"/>
+
+            <Button Text="{strings:Translate Ok}" TextColor="#A895DC" BackgroundColor="Transparent" BorderRadius="0" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+                    StyleId="{x:Static adc:App_FontFamilies.HeadingFont}"
+                FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+    </StackLayout>
+</pages:PopupPage>

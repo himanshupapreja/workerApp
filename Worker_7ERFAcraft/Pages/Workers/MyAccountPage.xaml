@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+              xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" 
+             x:Class="Worker_7ERFAcraft.Pages.MyAccountPage">
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand">
+                <StackLayout BackgroundColor="#FEEFE1"   HeightRequest="230" Padding="10" >
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <image:CircleImage Source="{Binding UserImage}" VerticalOptions="FillAndExpand"  WidthRequest="100" 
+                                           HeightRequest="100"   Aspect="AspectFill" >
+                        </image:CircleImage>
+                        <StackLayout   HorizontalOptions="FillAndExpand" Spacing="5" Margin="10,0,0,0">
+                            <Label Text="{Binding RegistrationNumber}" Style="{StaticResource HeaderLabelStyle}" FontSize="Large"/>
+                            <Label Text="{Binding FullName}" Style="{StaticResource HeaderLabelStyle}" FontSize="Medium"  TextColor="{StaticResource NewGrayColor}"/>
+
+                            <StackLayout  Orientation="Horizontal"   Spacing="5" >
+
+                                <!--<rating:SfRating x:Name="rating"  ItemCount="5"   ItemSize="20" Value="{Binding Rating}" ReadOnly="True" ItemSpacing="0">
+                                    <rating:SfRating.RatingSettings>
+                                        <rating:SfRatingSettings RatedFill="#ffc600" UnRatedFill="#bfbfbf" RatedStrokeWidth="0" UnRatedStrokeWidth="0"
+                                                                />
+                                    </rating:SfRating.RatingSettings> 
+                                </rating:SfRating>-->
+                              
+                              <Image   Source="{Binding ImgRate1}" HeightRequest="20"   />
+                              
+                              <Image   Source="{Binding ImgRate2}" HeightRequest="20"    />
+                              
+                              <Image   Source="{Binding ImgRate3}" HeightRequest="20"     />
+                  
+                    <Image   Source="{Binding ImgRate4}" HeightRequest="20"   />
+                    
+                      <Image   Source="{Binding ImgRate5}" HeightRequest="20"    />
+                    
+                  
+                                <Label Text="{Binding TotalReviews}" Style="{StaticResource LabelStyle}" VerticalOptions="CenterAndExpand"  />
+                            </StackLayout>
+                        </StackLayout>
+                          
+                    </StackLayout>
+                    <Grid HorizontalOptions="CenterAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Source="account_wallet.png" HorizontalOptions="CenterAndExpand"
+                               HeightRequest="50"   />
+
+                        <Label Grid.Column="0" Grid.Row="1" Text="{strings:Translate TotalBalance}" Style="{StaticResource HeaderLabelStyle}" HorizontalOptions="End"
+                           TextColor="Black" FontSize="Large"/>
+                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding TotalBalance}" Style="{StaticResource HeaderLabelStyle}" HorizontalOptions="Start"
+                           TextColor="{StaticResource MainColor}" FontSize="Large" Margin="5,0,0,0"/>
+
+
+                        <Label Grid.Column="0" Grid.Row="2" Text="{strings:Translate  TotalJobs}"  Style="{StaticResource LabelStyle}" HorizontalOptions="End"
+                           TextColor="Black"/>
+                        <Label  Grid.Column="1" Grid.Row="2" Text="{Binding TotalJobs}"  Style="{StaticResource LabelStyle}" HorizontalOptions="Start"
+                           TextColor="{StaticResource MainColor}" Margin="5,0,0,0"/>
+                    </Grid> 
+                    
+                </StackLayout>
+                <Frame HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="10" CornerRadius="15" HasShadow="True">
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Label Text="{Binding AvailableText}" Style="{StaticResource HeaderLabelStyle}" FontSize="16"/>
+                        <Image Source="{Binding ImageJobAvailable}" HeightRequest="25" HorizontalOptions="EndAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ImageJobAvailableCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image> 
+                    </StackLayout>
+                </Frame>
+                <Frame HorizontalOptions="FillAndExpand"  BackgroundColor="White" Margin="10,0,10,0" CornerRadius="15" HasShadow="True">
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Label Text="{strings:Translate YourDebt}" Style="{StaticResource HeaderLabelStyle}"   FontSize="13"/>
+                        <Label Text="{Binding YourDebt}" HorizontalOptions="EndAndExpand" Style="{StaticResource HeaderLabelStyle}"
+                               FontSize="10" TextColor="{StaticResource NewGrayColor}"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="#FEEFE1" Padding="10" Margin="10,15,10,10" IsVisible="False">
+                    <Label Text="{strings:Translate LongOrderPer}" Style="{StaticResource HeaderLabelStyle}" 
+                         HorizontalOptions="CenterAndExpand"     TextColor="{StaticResource MainColor}" FontSize="Medium"   LineBreakMode="TailTruncation" 
+                       BackgroundColor="#FEEFE1" />
+                </Frame>
+               
+
+
+                <Label Text="{strings:Translate SelectMonth}" Style="{StaticResource HeaderLabelStyle}" TextColor="#888888" FontSize="16"
+                               VerticalTextAlignment="Center" Margin="10,15,10,0"/>
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="10,0,5,0" > 
+                    <Image HeightRequest="25" Source="ic_calendar.png"/>
+                    <DatePicker Date="{Binding MDate}" Style="{StaticResource DatePickerStyle}"  Format="MMMM-yyyy"  /> 
+                    </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="10,-5,10,10" />
+
+                <ListView   x:Name="lstViewOrder" SeparatorVisibility="None" HasUnevenRows="true" 
+                       ItemsSource="{Binding OrderListGrouped}"  HorizontalOptions="FillAndExpand" 
+                        IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshDataCommand}" IsRefreshing="{Binding IsRefreshingData}"
+                        SelectedItem="{Binding SelectedOrderItem,Mode=TwoWay}"  
+              IsGroupingEnabled = "true"   GroupDisplayBinding = "{Binding Key}" HeightRequest="{Binding ListViewHeight}"   >
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <StackLayout    HorizontalOptions="FillAndExpand" Margin="10,0,10,0"   
+                                            Padding="10" BackgroundColor="{StaticResource MainColor}">
+                                    <Label Text="{Binding Key}"   VerticalOptions="Center" Style="{StaticResource HeaderLabelStyle}"
+                                           FontSize="16" TextColor="White"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <ViewCell.View>
+
+                                    <Frame  x:Name="frameHistory" HorizontalOptions="FillAndExpand" Margin="10,0,10,5"   Padding="10"> 
+                                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="2">
+                                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" >
+                                                <Label Text="{Binding CategoryName}" Style="{StaticResource HeaderLabelStyle}"
+                                                       FontSize="14"/>
+                                                <Label Text="{Binding StatusTextCaps}" Style="{StaticResource LabelStyle}" LineBreakMode="TailTruncation"
+                              TextColor="{Binding StatusTextColor}"   HorizontalOptions="EndAndExpand"  FontSize="13"/>
+                                            </StackLayout>
+                                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                                                     
+
+                                                        <Label Text="{Binding CustomerName}" Style="{StaticResource LabelStyle}" 
+                                                           VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"  FontSize="13"/>
+                                                  
+                                                        <Label Text="{Binding StrTotalDays}" Style="{StaticResource LabelStyle}"
+                                                           VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" LineBreakMode="TailTruncation"  FontSize="13"/>
+                                                    </StackLayout> 
+                                                
+
+                                                <StackLayout HorizontalOptions="EndAndExpand">
+
+                                                    <Image Source="right_arrow.png" VerticalOptions="CenterAndExpand" HeightRequest="40" WidthRequest="20">
+                                                        <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer BindingContext="{Binding Source={x:Reference lstViewOrder}, Path=BindingContext}" 
+                                                                              Command="{Binding bookingDetailCommand}" CommandParameter="{Binding Source={x:Reference frameHistory}, Path=BindingContext}" />
+                                                        </Image.GestureRecognizers>
+                                                    </Image>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                    </Frame>
+
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Command="{Binding addbtnCommand}"  x:Name="addbtn"   Text="{strings:Translate AddBalance}"  HorizontalOptions="FillAndExpand"
+                      Style="{StaticResource ButtonStyle}"   FontSize="Large"    Margin="0,20,0,0" HeightRequest="70"  > 
+                </Button>
+
+                 
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

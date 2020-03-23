@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:local="clr-namespace:Worker_7ERFAcraft.CustomControls"
+             ios:Page.UseSafeArea="True"
+             x:Class="Worker_7ERFAcraft.Pages.WorkerChatDetailPage">
+    <ContentPage.Content>
+        <StackLayout>
+        <StackLayout Rotation="180" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <local:CustomListView    SeparatorVisibility="None"   x:Name="chatDetailList" ItemsSource="{Binding Items}"  HasUnevenRows="True">
+
+
+                <local:CustomListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <StackLayout Rotation="180" Spacing="20" Padding="10">
+
+                                <Frame HasShadow="False" CornerRadius="8" BackgroundColor="#f2b48d"    HorizontalOptions="FillAndExpand" Padding="5" Margin="60,0,0,0" IsVisible="{Binding IsSender}">
+                                    <StackLayout Orientation="Vertical" Spacing="5" HorizontalOptions="FillAndExpand">
+                                        <Label Text="{Binding UserMessage}"  TextColor="Gray" HorizontalOptions="FillAndExpand"/>
+                                        <Label Text="{Binding UserMessageTime}" HorizontalOptions="End"  TextColor="Gray"/>
+                                    </StackLayout>
+                                </Frame>
+
+
+                                <Frame HasShadow="False" CornerRadius="8" BackgroundColor="#e3e3e3"   IsClippedToBounds="true" HorizontalOptions="FillAndExpand" Padding="5" Margin="0,0,60,0" IsVisible="{Binding IsReciver}">
+                                    <StackLayout Orientation="Vertical" Spacing="5" HorizontalOptions="FillAndExpand">
+                                        <Label Text="{Binding UserMessage}"   TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                                        <Label Text="{Binding UserMessageTime}" HorizontalOptions="End"   TextColor="Black"/>
+                                    </StackLayout>
+                                </Frame>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </local:CustomListView.ItemTemplate>
+
+
+
+            </local:CustomListView>
+
+
+
+        </StackLayout>
+
+        <StackLayout   Padding="2"  HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+                <Frame Padding="5" BackgroundColor="Transparent" OutlineColor="Silver">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                <Entry Text="{Binding Msg}"  HorizontalOptions="FillAndExpand"   TextColor="Black" PlaceholderColor="Black" 
+                          FontSize="14"  x:Name="txt_msg" 
+                            Placeholder="Enter message" BackgroundColor="Transparent"></Entry>
+                <Image HeightRequest="40" WidthRequest="40" Source="chat.png">
+
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                     Command="{Binding chat_Tapped}"
+                    NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

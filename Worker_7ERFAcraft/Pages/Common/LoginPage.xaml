@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository"
+                xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+             x:Class="Worker_7ERFAcraft.Pages.LoginPage"
+             BackgroundColor="White">
+
+    <ContentPage.Content>
+       
+
+                <StackLayout   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0"> 
+
+                    <StackLayout HorizontalOptions="FillAndExpand" Spacing="-6" VerticalOptions="FillAndExpand"  >
+
+                        <Image Source="logo_worker.png" HeightRequest="130" HorizontalOptions="FillAndExpand"  Margin="40,40,40,40" />
+
+
+                         
+                            <StackLayout HorizontalOptions="FillAndExpand" >
+                    <Label x:Name="lblTop2" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" 
+                   StyleId="{x:Static adc:App_FontFamilies.BodyFont}" TextColor="{StaticResource NewGrayColor}"
+                      Text="{strings:Translate LoginString}" FontSize="18" HorizontalOptions="Center" Margin="0,0,0,25" />
+
+
+
+
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  Margin="20,0,20,0">
+                                    <Image Source="ic_phone.png" HeightRequest="25" WidthRequest="25"/>
+                                  
+                                            <Entry Text="{Binding PhoneNumber}" x:Name="phoneTxt" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}"  
+                   StyleId="{x:Static adc:App_FontFamilies.BodyFont}" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  FontSize="Medium" 
+                                       TextColor="Black" Placeholder="{strings:Translate PhoneNumber}" PlaceholderColor="Gray" MaxLength="10" Keyboard="Numeric"/>
+                                      
+                                    
+                                </StackLayout>
+
+                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="#d2d2d2"></BoxView>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                                    <Image Source="ic_password.png" HeightRequest="25" WidthRequest="25"/>
+                                 
+                                            <Entry Text="{Binding Password}" x:Name="passwordTxt" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" 
+                   StyleId="{x:Static adc:App_FontFamilies.BodyFont}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                   IsPassword="true"   FontSize="Medium" TextColor="Black" Placeholder="{strings:Translate Password}" PlaceholderColor="Gray"/>
+
+                                         
+                                </StackLayout>
+
+                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="#d2d2d2"></BoxView>
+
+                    <Label x:Name="lblForgotPassword" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.BodyFont}" FontSize="15"  TextColor="#444444"   Text="{strings:Translate ForgotPassword}" 
+                                 HorizontalOptions="EndAndExpand"   Margin="0,20,20,0">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding forgotPasswordCommand}"></TapGestureRecognizer>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                 
+
+
+
+
+
+
+                                <Button Command="{Binding loginBtnCommand}"  x:Name="loginBtn"
+                                         Text="{strings:Translate Login}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" HeightRequest="70"
+                                TextColor="White" HorizontalOptions="FillAndExpand"    
+                                   FontSize="Large"   BackgroundColor="{StaticResource MainColor}"  
+                               Margin="0,20,0,0"  > 
+                                </Button>
+
+                               
+
+                            </StackLayout>
+                    
+                      
+ 
+                         
+ 
+                  
+
+
+
+
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" 
+                         BackgroundColor="Transparent" Margin="0,15,0,15"  >
+
+                <Label FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" 
+                   StyleId="{x:Static adc:App_FontFamilies.BodyFont}"
+                                TextColor="{StaticResource NewGrayColor}" Text="{strings:Translate DontHaveAccount}" 
+                                FontSize="Medium" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+
+                <Label FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}"
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}"
+                        TextColor="{StaticResource MainColor}" Margin="10,0,0,0" FontAttributes="Bold" Text="{strings:Translate SignUp}" 
+                                FontSize="Medium" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding signUpCommand}"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+            
+                <Button Command="{Binding guestloginBtnCommand}"  x:Name="guestloginBtn" CornerRadius="0"
+                                         Text="{strings:Translate GuestCustomer}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" HeightRequest="70"
+                                TextColor="White" HorizontalOptions="FillAndExpand"    VerticalOptions="EndAndExpand"
+                                   FontSize="Large"   BackgroundColor="{StaticResource MainColor}"  
+                               Margin="0,20,0,0"  > 
+                                </Button>
+        </StackLayout>
+                     </StackLayout>
+                
+    </ContentPage.Content>
+</ContentPage>

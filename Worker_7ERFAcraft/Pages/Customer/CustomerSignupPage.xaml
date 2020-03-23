@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:adc="clr-namespace:Worker_7ERFAcraft.Repository"
+              xmlns:strings="clr-namespace:Worker_7ERFAcraft;assembly=Worker_7ERFAcraft"
+                  xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="Worker_7ERFAcraft.Pages.CustomerSignupPage" >
+    
+    <ContentPage.Content>
+        
+            <ScrollView HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand"  >
+
+                <StackLayout BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  >
+
+                <AbsoluteLayout HorizontalOptions="FillAndExpand" HeightRequest="100"
+                         BackgroundColor="Transparent">
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical"
+                          AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="Transparent">
+
+                        <Grid
+                       RelativeLayout.WidthConstraint="{ConstraintExpression
+                     Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression
+                    Type=RelativeToParent,Property=Height,Factor=1,Constant=0}" 
+                        
+                        Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*">
+                                </ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100">
+                                </RowDefinition>
+                            </Grid.RowDefinitions>
+                            <image:CircleImage Grid.Column="0" Grid.Row="0" Source="{Binding Image}"  x:Name="imgProfile" HorizontalOptions="CenterAndExpand"
+                                                           WidthRequest="100" HeightRequest="100" Margin="0,15,0,0">
+                                <image:CircleImage.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding imgProfileCommand}"></TapGestureRecognizer>
+                                </image:CircleImage.GestureRecognizers>
+                            </image:CircleImage>
+                            <Label Style="{StaticResource LabelStyle}" Text="{strings:Translate Edit}" VerticalOptions="End"
+                                   HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="Small" Margin="0,0,0,2"/>
+                        </Grid>
+
+
+
+                    </StackLayout>
+
+                    
+                </AbsoluteLayout>
+
+
+
+            
+
+
+
+                                    <!-- Username-->
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="20,15,20,0">
+                    <Image Source="ic_name.png" HeightRequest="25" WidthRequest="25"/> 
+                        <Entry Text="{Binding UserName}" Style="{StaticResource EntryStyle}"    Placeholder="{strings:Translate Username}"  /> 
+                                    </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <!--Full Name-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Image Source="ic_name.png" HeightRequest="25" WidthRequest="25"/> 
+                        <Entry Text="{Binding FullName}" Style="{StaticResource EntryStyle}"    Placeholder="{strings:Translate FullName}"  />  
+                                    </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <!--Phone number-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                                        <Image Source="ic_phone.png" HeightRequest="25" WidthRequest="25"/> 
+                        <Entry Text="{Binding PhoneNumber}" Style="{StaticResource EntryStyle}"    Placeholder="{strings:Translate PhoneNumber}"  MaxLength="10"
+                                                   Keyboard="Numeric"/> 
+                                    </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <!--Password-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                                        <Image Source="ic_password.png" HeightRequest="25" WidthRequest="25"/>
+                    <Entry Text="{Binding Password}" Style="{StaticResource EntryStyle}"    Placeholder="{strings:Translate Password}"  IsPassword="True"/>
+                </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <!--Confirm Password-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                                        <Image Source="ic_password.png" HeightRequest="25" WidthRequest="25"/> 
+                        <Entry Text="{Binding ConfirmPassword}" Style="{StaticResource EntryStyle}"    Placeholder="{strings:Translate ConfirmPassword}" 
+                                                   IsPassword="True"/> 
+                                    </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <!--Country-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <Image Source="ic_flag.png" HeightRequest="25" WidthRequest="25"/> 
+                                            <StackLayout HorizontalOptions="FillAndExpand"  Orientation="Horizontal" Spacing="0">
+                                                <Picker  x:Name="pkCountry" Style="{StaticResource PickerStyle}" ItemsSource="{Binding CountryList}" SelectedItem="{Binding SelectedCountryItem}" 
+                                                        Title="{strings:Translate SelectCountry}"/>
+                            <Image x:Name="imgCountry" Source="ic_drop_menu_icon.png" HeightRequest="25" WidthRequest="25">
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="imgCountry_Tapped">
+                                                            
+                                                        </TapGestureRecognizer>
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                            </StackLayout> 
+                                    </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <!--Location-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="20,0,20,0" >
+                    <Image Source="ic_address.png" HeightRequest="25" WidthRequest="25"/>
+                                        <StackLayout HorizontalOptions="FillAndExpand">
+                                            <Entry Text="{Binding Location}" Style="{StaticResource EntryStyle}"    Placeholder="{strings:Translate Location}"  />
+                                            
+                                    </StackLayout>
+                    <Image Source="ic_map.png" HeightRequest="25" WidthRequest="25">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding ShowMapCommand}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                <ListView x:Name="lstViewPlaces" SeparatorVisibility="None" HasUnevenRows="False"  SelectedItem="{Binding LocSelectedItem}"
+                 HorizontalOptions="FillAndExpand" HeightRequest="{Binding GridLocHeight}" ItemsSource="{Binding LocationList}"
+                          VerticalOptions="Start" Margin="5,0,0,0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsClippedToBounds="True" Padding="0">
+                                        <Label  Style="{StaticResource LabelStyle}" FontSize="15"                                                    Text="{Binding description}"  />
+                                    </StackLayout>
+
+
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}"/>
+                <!--Terms-->
+
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                         Spacing="15" Padding="0,15,0,0" Margin="20,0,20,0">
+
+                    <Image Source="{Binding TermsCheckBox}" VerticalOptions="Center"
+                              HeightRequest="25" WidthRequest="25" HorizontalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding termsConditionsCommand}"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Label StyleId="{x:Static adc:App_FontFamilies.BodyFont}" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" FontSize="Small" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{strings:Translate AgreeWithTerms}" StyleId="{x:Static adc:App_FontFamilies.BodyFont}" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" ForegroundColor="{StaticResource NewGrayColor}"/>
+                                <Span Text="{strings:Translate TermsConditions}" StyleId="{x:Static adc:App_FontFamilies.BodyFont}" FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" ForegroundColor="#444444"  >
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding openTermsConditionsCommand}"></TapGestureRecognizer>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                </StackLayout>
+
+
+                <Button Command="{Binding signUpCommand}"  x:Name="signUpBtn"
+                                         Text="{strings:Translate SignUp}" FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}" 
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}" TextColor="White" HorizontalOptions="FillAndExpand"    
+                                   FontSize="Large"   BackgroundColor="{StaticResource MainColor}"     Margin="0,10,0,0"  HeightRequest="70">
+                </Button>
+
+
+
+
+
+
+
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="End"
+                        Margin="0,15,0,15" IsVisible="False">
+
+                    <Label FontFamily="{x:Static adc:App_FontFamilies.BodyFont}" 
+                   StyleId="{x:Static adc:App_FontFamilies.BodyFont}"
+                                TextColor="#444444" Text="{strings:Translate AlreadyhaveAccount}" 
+                                FontSize="Medium" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+
+                    <Label FontFamily="{x:Static adc:App_FontFamilies.HeadingFont}"
+           StyleId="{x:Static adc:App_FontFamilies.HeadingFont}"
+                        TextColor="#444444" FontAttributes="Bold" Text="{strings:Translate Login}" 
+                                FontSize="Medium" Margin="10,0,0,0" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding loginCommand}"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+            </StackLayout>
+
+
+            </StackLayout>
+            </ScrollView> 
+    </ContentPage.Content>
+</ContentPage>
